@@ -79,6 +79,56 @@ def init_state(cards, endings):
         st.session_state.sql_engine = SqlEngine("gut_reigns.db")
 
 
+def render_swipe_tutorial() -> None:
+    """Show a one-time swipe tutorial before the first card."""
+    st.markdown(MOBILE_CSS, unsafe_allow_html=True)
+    st.markdown("""
+    <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;
+                min-height:70vh;text-align:center;padding:1rem;">
+      <div style="font-size:2.5rem;margin-bottom:0.5rem;">👑</div>
+      <div style="font-size:1.6rem;font-weight:700;color:#E8D5B7;margin-bottom:0.8rem;
+                  font-family:'Noto Serif TC',serif;">腸道王權</div>
+      <div style="font-size:0.9rem;color:#8A7A6A;margin-bottom:2rem;line-height:1.6;">
+        你剛確診 IBD，接下來的每一個選擇<br>都將影響你的健康、免疫、心理與經濟。
+      </div>
+      <div style="display:flex;align-items:center;justify-content:center;gap:1.5rem;
+                  margin-bottom:1.5rem;">
+        <div style="text-align:center;">
+          <div style="font-size:2.2rem;animation:swipeHintLeft 1.5s ease-in-out infinite;">👈</div>
+          <div style="font-size:0.8rem;color:#E57373;font-weight:600;margin-top:0.3rem;">左滑</div>
+        </div>
+        <div style="width:80px;height:100px;background:rgba(232,213,183,0.08);
+                    border:2px dashed rgba(232,213,183,0.2);border-radius:12px;
+                    display:flex;align-items:center;justify-content:center;">
+          <div style="font-size:1.8rem;opacity:0.5;">🃏</div>
+        </div>
+        <div style="text-align:center;">
+          <div style="font-size:2.2rem;animation:swipeHintRight 1.5s ease-in-out infinite;">👉</div>
+          <div style="font-size:0.8rem;color:#81C784;font-weight:600;margin-top:0.3rem;">右滑</div>
+        </div>
+      </div>
+      <div style="font-size:0.78rem;color:#8A7A6A;line-height:1.8;margin-bottom:1.5rem;">
+        ← 向左滑動選擇左邊選項<br>
+        → 向右滑動選擇右邊選項<br>
+        也可以使用下方按鈕操作
+      </div>
+    </div>
+    <style>
+      @keyframes swipeHintLeft {
+        0%, 100% { transform: translateX(0); }
+        50% { transform: translateX(-12px); }
+      }
+      @keyframes swipeHintRight {
+        0%, 100% { transform: translateX(0); }
+        50% { transform: translateX(12px); }
+      }
+    </style>
+    """, unsafe_allow_html=True)
+    if st.button("▶ 開始遊戲", type="primary", use_container_width=True):
+        st.session_state.tutorial_shown = True
+        st.rerun()
+
+
 def render_dotbar(value: int, key: str = "default") -> None:
     active = max(0, min(10, int(round(value / 10))))
     critical = "critical" if value < 20 else ""
@@ -639,6 +689,11 @@ def main() -> None:
     endings = {ending.id: ending for ending in load_endings("assets/endings.json")}
     init_state(cards, endings)
 
+    # Show swipe tutorial before the first game
+    if not st.session_state.get("tutorial_shown", False):
+        render_swipe_tutorial()
+        return
+
     state = st.session_state.state
     deck = st.session_state.deck
     analytics = st.session_state.analytics
@@ -808,16 +863,19 @@ def main() -> None:
 
     left = False
     right = False
-    with st.expander("備用按鈕（無障礙操作）"):
+    st.markdown("<div style='margin-top:0.5rem;'></div>", unsafe_allow_html=True)
+    col_l, col_r = st.columns(2)
+    with col_l:
         left = st.button(
-            card.left.label,
+            f"👈 {card.left.label}",
             disabled=locks.get("left") is not None,
             use_container_width=True,
             key="left",
             help=locks.get("left"),
         )
+    with col_r:
         right = st.button(
-            card.right.label,
+            f"{card.right.label} 👉",
             disabled=locks.get("right") is not None,
             use_container_width=True,
             key="right",
