@@ -1,0 +1,3408 @@
+[
+  {
+    "timestamp": 1771857384455,
+    "issues": [
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 102
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 753
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 268
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 278
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 308
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 337
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 336
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 338
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 3200
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 584
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 591
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 102
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 753
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 268
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 278
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 308
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 337
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 336
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 338
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1513
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1536
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1549
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1556
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 584
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 591
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1513
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1536
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1549
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1556
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 3200
+      }
+    ],
+    "summary": {
+      "totalIssues": 36,
+      "todoCount": 2538,
+      "durationMs": 6102
+    }
+  },
+  {
+    "timestamp": 1771857383855,
+    "issues": [
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 337
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 336
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 338
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 268
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 278
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 308
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 102
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 753
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 3200
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1513
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1536
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1549
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1556
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 584
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 591
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 268
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 278
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 308
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 337
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 336
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 338
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 102
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 753
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 3200
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 584
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 591
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1513
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1536
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1549
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1556
+      }
+    ],
+    "summary": {
+      "totalIssues": 36,
+      "todoCount": 2538,
+      "durationMs": 5887
+    }
+  },
+  {
+    "timestamp": 1771755505842,
+    "issues": [
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 268
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 278
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 308
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 337
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 336
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 338
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 102
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 753
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 3200
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 584
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 591
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1513
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1536
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1549
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1556
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 102
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 753
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 268
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 278
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 308
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 337
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 336
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 338
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 3200
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1513
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1536
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1549
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1556
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 584
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 591
+      }
+    ],
+    "summary": {
+      "totalIssues": 36,
+      "todoCount": 2538,
+      "durationMs": 5143
+    }
+  },
+  {
+    "timestamp": 1771755505232,
+    "issues": [
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 584
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 591
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1513
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1536
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1549
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1556
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 102
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 753
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 268
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 278
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 308
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 337
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 336
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 338
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 3200
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 337
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 336
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 338
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 268
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 278
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 308
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 102
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 753
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 3200
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 584
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 591
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1513
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1536
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1549
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1556
+      }
+    ],
+    "summary": {
+      "totalIssues": 36,
+      "todoCount": 2538,
+      "durationMs": 4990
+    }
+  },
+  {
+    "timestamp": 1771673758840,
+    "issues": [
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 102
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 753
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 268
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 278
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 308
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 337
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 336
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 338
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 3200
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 584
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 591
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1513
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1536
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1549
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1556
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 268
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 278
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 308
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 337
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 336
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 338
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 102
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 753
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 3200
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 584
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 591
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1513
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1536
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1549
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1556
+      }
+    ],
+    "summary": {
+      "totalIssues": 36,
+      "todoCount": 2538,
+      "durationMs": 5610
+    }
+  },
+  {
+    "timestamp": 1771673758263,
+    "issues": [
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1513
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1536
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1549
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1556
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 584
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 591
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 102
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 753
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 268
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 278
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 308
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 337
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 336
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 338
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 3200
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 337
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 336
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 338
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 268
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 278
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 308
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 102
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 753
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 3200
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 584
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 591
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1513
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1536
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1549
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1556
+      }
+    ],
+    "summary": {
+      "totalIssues": 36,
+      "todoCount": 2538,
+      "durationMs": 4651
+    }
+  },
+  {
+    "timestamp": 1771620712183,
+    "issues": [
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 102
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 753
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 268
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 278
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 308
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 337
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 336
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 338
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 3200
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 268
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 278
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 308
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 337
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 336
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 338
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 102
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 753
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 3200
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 584
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 591
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1513
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1536
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1549
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1556
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 584
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 591
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1513
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1536
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1549
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1556
+      }
+    ],
+    "summary": {
+      "totalIssues": 36,
+      "todoCount": 2538,
+      "durationMs": 5269
+    }
+  },
+  {
+    "timestamp": 1771620711595,
+    "issues": [
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 102
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 753
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 268
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 278
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 308
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 337
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 336
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 338
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 3200
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 3200
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 102
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 753
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 268
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 278
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 308
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 337
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 336
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 338
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 584
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 591
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1513
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1536
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1549
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1556
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 584
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 591
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1513
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1536
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1549
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1556
+      }
+    ],
+    "summary": {
+      "totalIssues": 36,
+      "todoCount": 2538,
+      "durationMs": 4326
+    }
+  },
+  {
+    "timestamp": 1771618723755,
+    "issues": [
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 3200
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 584
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 591
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1513
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1536
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1549
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1556
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 268
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 278
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 308
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 337
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 336
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 338
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 102
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 753
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 268
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 278
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 308
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 337
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 336
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 338
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 102
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 753
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 3200
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 584
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 591
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1513
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1536
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1549
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1556
+      }
+    ],
+    "summary": {
+      "totalIssues": 36,
+      "todoCount": 2538,
+      "durationMs": 9622
+    }
+  },
+  {
+    "timestamp": 1771618723201,
+    "issues": [
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 102
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 753
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 268
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 278
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 308
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 337
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 336
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 338
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 3200
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1513
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1536
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1549
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1556
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 584
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 591
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 102
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 753
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 268
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 278
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 308
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 337
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 336
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 338
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 3200
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1513
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1536
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1549
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1556
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 584
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 591
+      }
+    ],
+    "summary": {
+      "totalIssues": 36,
+      "todoCount": 2538,
+      "durationMs": 8922
+    }
+  },
+  {
+    "timestamp": 1771615798909,
+    "issues": [
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 3200
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 102
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 753
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 268
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 278
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 308
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 337
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 336
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 338
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 268
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 278
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 308
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 337
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 336
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 338
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 102
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 753
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 3200
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 584
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 591
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1513
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1536
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1549
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1556
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1513
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1536
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1549
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1556
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 584
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 591
+      }
+    ],
+    "summary": {
+      "totalIssues": 36,
+      "todoCount": 2538,
+      "durationMs": 5399
+    }
+  },
+  {
+    "timestamp": 1771423466201,
+    "issues": [
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 102
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 753
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 268
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 278
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 308
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 337
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 336
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 338
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 3200
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1513
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1536
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1549
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1556
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 584
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 591
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 268
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 278
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 308
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 337
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 336
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 338
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 102
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 753
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 3200
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 584
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 591
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1513
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1536
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1549
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1556
+      }
+    ],
+    "summary": {
+      "totalIssues": 36,
+      "todoCount": 2538,
+      "durationMs": 5775
+    }
+  },
+  {
+    "timestamp": 1771242316478,
+    "issues": [
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 102
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 753
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 268
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 278
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 308
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 337
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 336
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 338
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 3200
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 584
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 591
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1513
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1536
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1549
+      },
+      {
+        "file": ".venv/lib64/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1556
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 268
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 278
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/httpclient_test.py",
+        "message": "可能的硬編碼密碼",
+        "ruleId": "hardcoded_password",
+        "severity": "error",
+        "line": 308
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 102
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/web_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 753
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 337
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 336
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/tornado/test/auth_test.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 338
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 2699
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/streamlit/static/static/js/index.BrRuSP42.js",
+        "message": "可能的硬編碼 API Key",
+        "ruleId": "hardcoded_api_key",
+        "severity": "error",
+        "line": 3200
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1513
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1536
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1549
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_fs.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 1556
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 584
+      },
+      {
+        "file": ".venv/lib/python3.10/site-packages/pyarrow/tests/test_flight.py",
+        "message": "可能的敏感 Secret",
+        "ruleId": "hardcoded_secret",
+        "severity": "error",
+        "line": 591
+      }
+    ],
+    "summary": {
+      "totalIssues": 36,
+      "todoCount": 2538,
+      "durationMs": 5214
+    }
+  }
+]

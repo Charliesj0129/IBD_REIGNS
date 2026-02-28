@@ -1,0 +1,17 @@
+{
+  "generatedAt": "2026-02-28T13:48:13.616Z",
+  "technology": {
+    "language": "Python",
+    "framework": "unknown"
+  },
+  "structure": {
+    "hasDocker": true,
+    "hasCompose": true,
+    "hasGit": true
+  },
+  "pixiu": {
+    "active_rules": [],
+    "installed_skills": [],
+    "available_workflows": []
+  }
+}

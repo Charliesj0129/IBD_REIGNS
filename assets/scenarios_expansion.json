@@ -1,0 +1,223 @@
+[
+  {
+    "id": "work_overtime_flare",
+    "text": "發炎期間主管要求你加班趕專案。",
+    "character_name": "主管",
+    "character_role": "經理",
+    "left": {
+      "label": "咬牙加班",
+      "effect": {
+        "MONEY": 15,
+        "HEALTH": -15,
+        "SANITY": -5
+      }
+    },
+    "right": {
+      "label": "請假回家",
+      "effect": {
+        "MONEY": -10,
+        "HEALTH": 5,
+        "SANITY": 5
+      }
+    },
+    "theme": "social",
+    "conditions": {
+      "min_immune": 30
+    }
+  },
+  {
+    "id": "work_toilet_meeting",
+    "text": "重要會議中，你的肚子突然翻攪。",
+    "character_name": "內心獨白",
+    "character_role": "腸道直覺",
+    "left": {
+      "label": "藉口離席",
+      "effect": {
+        "MONEY": -5,
+        "HEALTH": 0,
+        "SANITY": 5
+      }
+    },
+    "right": {
+      "label": "忍到結束",
+      "effect": {
+        "HEALTH": -10,
+        "SANITY": -10
+      }
+    },
+    "theme": "social"
+  },
+  {
+    "id": "work_promotion_stress",
+    "text": "升遷機會來了，但壓力可能讓病情惡化。",
+    "character_name": "人資",
+    "character_role": "經理",
+    "left": {
+      "label": "接受升遷",
+      "effect": {
+        "MONEY": 20,
+        "SANITY": -15,
+        "IMMUNE": -5
+      }
+    },
+    "right": {
+      "label": "放棄機會",
+      "effect": {
+        "MONEY": -5,
+        "SANITY": 10
+      }
+    },
+    "theme": "social"
+  },
+  {
+    "id": "travel_backpack",
+    "text": "朋友約你去東南亞背包旅行。",
+    "character_name": "好友",
+    "character_role": "冒險家",
+    "left": {
+      "label": "一起出發",
+      "effect": {
+        "SANITY": 15,
+        "IMMUNE": -10,
+        "HEALTH": -5
+      }
+    },
+    "right": {
+      "label": "安全留守",
+      "effect": {
+        "SANITY": -5,
+        "HEALTH": 5
+      }
+    },
+    "theme": "social"
+  },
+  {
+    "id": "travel_meds_timezone",
+    "text": "跨時區旅行，用藥時間全亂了。",
+    "character_name": "內心獨白",
+    "character_role": "旅人",
+    "left": {
+      "label": "設鬧鐘調整",
+      "effect": {
+        "IMMUNE": 5,
+        "HEALTH": 0
+      }
+    },
+    "right": {
+      "label": "隨緣吃藥",
+      "effect": {
+        "IMMUNE": -15,
+        "HEALTH": -5
+      },
+      "add_tags": [
+        "adherence_poor"
+      ]
+    },
+    "theme": "treatment",
+    "education": {
+      "title": "時區與用藥",
+      "content": "跨時區旅遊時，建議設定手機鬧鐘提醒服藥時間。生物製劑通常不需要嚴格調整，但每日口服藥應保持間隔規律。",
+      "source": "IBD Passport"
+    }
+  },
+  {
+    "id": "travel_food_poison",
+    "text": "路邊攤的食物飄著誘人的香氣，但你不確定衛生狀況。",
+    "character_name": "攤販",
+    "character_role": "旅途",
+    "left": {
+      "label": "大膽嚐鮮",
+      "effect": {
+        "SANITY": 10,
+        "HEALTH": -20,
+        "IMMUNE": -10
+      }
+    },
+    "right": {
+      "label": "吃安全的",
+      "effect": {
+        "SANITY": -5,
+        "HEALTH": 5
+      }
+    },
+    "theme": "social"
+  },
+  {
+    "id": "family_plan",
+    "text": "伴侶提起想要小孩的事。你的病情讓這件事更複雜。",
+    "character_name": "伴侶",
+    "character_role": "摯愛",
+    "left": {
+      "label": "開始計劃",
+      "effect": {
+        "SANITY": 15
+      }
+    },
+    "right": {
+      "label": "暫時延後",
+      "effect": {
+        "HEALTH": 5,
+        "SANITY": -5
+      }
+    },
+    "theme": "social",
+    "education": {
+      "title": "IBD 與懷孕",
+      "content": "IBD 患者最佳受孕時機是在疾病緩解期。活動期懷孕會增加早產與流產風險。",
+      "source": "ECCO Guidelines on Reproduction"
+    }
+  },
+  {
+    "id": "pregnancy_meds_worry",
+    "text": "你擔心藥物會影響胎兒，考慮自行停藥。",
+    "character_name": "內心獨白",
+    "character_role": "準父母",
+    "left": {
+      "label": "停掉藥物",
+      "effect": {
+        "IMMUNE": -25,
+        "HEALTH": -15
+      },
+      "add_tags": [
+        "adherence_poor"
+      ]
+    },
+    "right": {
+      "label": "繼續服藥",
+      "effect": {
+        "MONEY": -5,
+        "IMMUNE": 5
+      }
+    },
+    "theme": "treatment",
+    "education": {
+      "title": "懷孕用藥安全",
+      "content": "大多數 IBD 藥物（包括生物製劑）在懷孕期間是安全的，且停藥導致發作的風險遠大於藥物本身的風險。",
+      "source": "PIANO Registry"
+    }
+  },
+  {
+    "id": "child_genetic_worry",
+    "text": "你擔心 IBD 會遺傳給下一代。",
+    "character_name": "內心獨白",
+    "character_role": "準父母",
+    "left": {
+      "label": "陷入焦慮",
+      "effect": {
+        "SANITY": -20
+      }
+    },
+    "right": {
+      "label": "接受現實",
+      "effect": {
+        "SANITY": 10
+      }
+    },
+    "theme": "social",
+    "education": {
+      "title": "IBD 遺傳風險",
+      "content": "若父母一方患有 IBD，子女罹患風險約為 2-5%。雖然高於一般人，但絕大多數子女不會發病。",
+      "source": "CCFA Genetics Info"
+    }
+  }
+]

@@ -1,0 +1,22 @@
+[project]
+name = "ibd-reigns"
+version = "0.1.0"
+description = "腸道王權 — 結合 REIGNS 機制的 IBD 醫療衛教模擬遊戲"
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "streamlit>=1.32.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-cov>=4.1.0",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q --cov=ibd_reigns --cov-report=term-missing --cov-fail-under=90"
+
+[tool.coverage.run]
+branch = true

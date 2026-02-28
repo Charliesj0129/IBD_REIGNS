@@ -1,0 +1,684 @@
+<!doctype html>
+<html lang="zh-TW">
+  <head>
+    <meta charset="UTF-8" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Inter:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --card-bg: #1e1e30;
+        --card-border: rgba(232, 213, 183, 0.12);
+        --text-color: #e8d5b7;
+        --text-muted: #8a7a6a;
+        --accent: #d4a574;
+        --glow-spring: rgba(129, 199, 132, 0.2);
+        --glow-summer: rgba(255, 183, 77, 0.2);
+        --glow-fall: rgba(188, 143, 107, 0.2);
+        --glow-winter: rgba(100, 181, 246, 0.2);
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        user-select: none;
+        -webkit-user-select: none;
+      }
+      body {
+        background: transparent !important;
+        font-family: "Noto Serif TC", serif;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        height: 100vh;
+        color: var(--text-color);
+      }
+
+      /* Ambient season glow — soft blurred orbs behind card */
+      .season-glow {
+        position: fixed;
+        border-radius: 50%;
+        filter: blur(80px);
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 1.2s ease, background 1.2s ease;
+        z-index: 0;
+      }
+      .season-glow.orb-1 {
+        width: 280px; height: 280px;
+        top: 10%; left: 15%;
+      }
+      .season-glow.orb-2 {
+        width: 200px; height: 200px;
+        bottom: 15%; right: 10%;
+      }
+      .season-glow.active { opacity: 1; }
+
+      /* Stats Area */
+      .gutreigns-stat-row {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        padding-top: 16px;
+        z-index: 5;
+        width: 100%;
+      }
+      .gutreigns-stat-pillar {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 6px;
+        position: relative;
+      }
+      .stat-indicator {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: transparent;
+        transition: background-color 0.3s, transform 0.3s, box-shadow 0.3s;
+      }
+      .indicator-active {
+        background-color: var(--accent);
+        box-shadow: 0 0 6px rgba(212, 165, 116, 0.5);
+      }
+      .indicator-large {
+        transform: scale(2.2);
+        box-shadow: 0 0 10px rgba(212, 165, 116, 0.7);
+      }
+      /* Icon wrappers */
+      .gutreigns-stat-icon-wrapper {
+        position: relative;
+        width: 32px;
+        height: 32px;
+        font-size: 1.5rem;
+        opacity: 0.9;
+        filter: grayscale(60%) brightness(0.9);
+        transition: filter 0.3s, transform 0.3s;
+      }
+      .stat-icon-bg {
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0.25;
+      }
+      .stat-icon-fill {
+        position: absolute;
+        bottom: 0; left: 0;
+        width: 100%;
+        overflow: hidden;
+        display: flex;
+        align-items: flex-end;
+        transition: height 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .stat-icon-fill-content {
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        position: absolute;
+        bottom: 0;
+      }
+
+      /* Dialogue Area */
+      .dialogue-container {
+        width: clamp(280px, 85vw, 360px);
+        min-height: 90px;
+        margin-top: 16px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        z-index: 5;
+      }
+      .card-character {
+        font-family: "Inter", sans-serif;
+        font-size: 0.72rem;
+        text-transform: uppercase;
+        letter-spacing: 0.15em;
+        color: var(--accent);
+        font-weight: 600;
+        margin-bottom: 8px;
+        min-height: 14px;
+        opacity: 0.85;
+      }
+      .card-dialogue {
+        font-size: 1.15rem;
+        line-height: 1.7;
+        color: var(--text-color);
+        font-weight: 700;
+        min-height: 40px;
+        text-shadow: 0 1px 3px rgba(0,0,0,0.3);
+      }
+
+      /* Play Area */
+      .play-area {
+        position: relative;
+        flex-grow: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        width: 100%;
+        margin-top: 8px;
+      }
+
+      /* Option labels */
+      .swipe-edge-container {
+        position: absolute;
+        top: -15px;
+        width: clamp(280px, 95vw, 400px);
+        display: flex;
+        justify-content: space-between;
+        z-index: 20;
+        pointer-events: none;
+      }
+      .swipe-edge {
+        font-family: "Noto Serif TC", serif;
+        font-size: 1.1rem;
+        font-weight: 700;
+        padding: 4px 12px;
+        border-radius: 8px;
+        opacity: 0;
+        transition: opacity 0.15s, transform 0.15s;
+        white-space: nowrap;
+      }
+      #edge-left {
+        transform-origin: left center;
+        text-align: left;
+        color: #E57373;
+        background: rgba(229, 115, 115, 0.1);
+        backdrop-filter: blur(4px);
+      }
+      #edge-right {
+        transform-origin: right center;
+        text-align: right;
+        color: #81C784;
+        background: rgba(129, 199, 132, 0.1);
+        backdrop-filter: blur(4px);
+      }
+
+      /* Card Stack */
+      .card-stack {
+        position: relative;
+        width: clamp(240px, 75vw, 300px);
+        height: 360px;
+        margin-top: 24px;
+      }
+      .ghost-card {
+        position: absolute;
+        bottom: 0px;
+        left: 50%;
+        width: 100%;
+        height: 100%;
+        background: var(--card-bg);
+        border-radius: 16px;
+        border: 1px solid var(--card-border);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        transform-origin: bottom center;
+      }
+      .ghost-card:nth-child(1) {
+        z-index: 1;
+        transform: translateX(-50%) translate(0, 10px) scale(0.92);
+        opacity: 0.4;
+      }
+      .ghost-card:nth-child(2) {
+        z-index: 2;
+        transform: translateX(-50%) translate(0, 5px) scale(0.96);
+        opacity: 0.6;
+      }
+
+      .reigns-card {
+        background: var(--card-bg);
+        border-radius: 16px;
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4), 0 0 0 1px var(--card-border);
+        border: none;
+        position: absolute;
+        top: 0; left: 0;
+        width: 100%; height: 100%;
+        z-index: 10;
+        cursor: grab;
+        will-change: transform;
+        transform-origin: 50% 120%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        backdrop-filter: blur(2px);
+        overflow: hidden;
+      }
+      /* Inner parchment texture overlay */
+      .reigns-card::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 50% 30%, rgba(232,213,183,0.04) 0%, transparent 70%);
+        pointer-events: none;
+      }
+      .reigns-card:active { cursor: grabbing; }
+
+      /* Card Juice Bounce */
+      @keyframes cardAppear {
+        0% { transform: translateY(30px) scale(0.96); opacity: 0; }
+        50% { transform: translateY(-4px) scale(1.01); opacity: 1; }
+        100% { transform: translateY(0) scale(1); opacity: 1; }
+      }
+      .card-appear {
+        animation: cardAppear 0.45s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+      }
+
+      .card-silhouette {
+        width: 110px;
+        height: 110px;
+        opacity: 0.7;
+        pointer-events: none;
+        filter: drop-shadow(0 0 12px rgba(212, 165, 116, 0.15));
+      }
+      .card-silhouette svg {
+        width: 100%;
+        height: 100%;
+        fill: var(--text-muted);
+      }
+
+      .swipe-hint {
+        text-align: center;
+        font-family: "Inter", sans-serif;
+        font-size: 0.75rem;
+        color: var(--text-muted);
+        margin-top: 24px;
+        letter-spacing: 0.06em;
+        opacity: 0.6;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="season-glow orb-1" id="glow-orb-1"></div>
+    <div class="season-glow orb-2" id="glow-orb-2"></div>
+    <div class="gutreigns-stat-row" id="stat-row">
+      <!-- Generated by JS -->
+    </div>
+
+    <div class="dialogue-container">
+      <div class="card-character" id="card-character"></div>
+      <div class="card-dialogue" id="card-text"></div>
+    </div>
+
+    <div class="play-area">
+      <div class="card-stack">
+        <div class="swipe-edge-container">
+          <div class="swipe-edge" id="edge-left"></div>
+          <div class="swipe-edge" id="edge-right"></div>
+        </div>
+        <div class="ghost-card"></div>
+        <div class="ghost-card"></div>
+        <div id="swipe-card" class="reigns-card">
+          <div class="card-silhouette" id="card-silhouette"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="swipe-hint" id="swipe-hint"></div>
+
+    <script>
+      // --- Streamlit Interface ---
+      function sendMessageToStreamlitClient(type, data) {
+        window.parent.postMessage({ isStreamlitMessage: true, type: type, ...data }, "*");
+      }
+
+      function onDataFromPython(event) {
+        if (event.data.type !== "streamlit:render") return;
+        render(event.data.args);
+      }
+
+      function setStreamlitComponentValue(val) {
+        sendMessageToStreamlitClient("streamlit:setComponentValue", {
+          value: val,
+          dataType: "json",
+        });
+      }
+
+      window.addEventListener("message", onDataFromPython);
+      sendMessageToStreamlitClient("streamlit:componentReady", {
+        apiVersion: 1,
+      });
+
+      // --- Sound FX Engine (Physical Card Sounds) ---
+      let audioCtx = null;
+      function ensureAudioCtx() {
+        if (!audioCtx) {
+          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        }
+        if (audioCtx.state === 'suspended') audioCtx.resume();
+        return audioCtx;
+      }
+
+      // 紙牌摩擦音 (Card paper friction: filtered noise burst)
+      function playSfxCardSlide() {
+        const ctx = ensureAudioCtx();
+        const duration = 0.12;
+        const bufferSize = ctx.sampleRate * duration;
+        const buf = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+        const data = buf.getChannelData(0);
+        for (let i = 0; i < bufferSize; i++) {
+          // Shaped noise: quick attack, fast decay
+          const env = Math.exp(-i / (bufferSize * 0.15));
+          data[i] = (Math.random() * 2 - 1) * env * 0.3;
+        }
+        const src = ctx.createBufferSource();
+        src.buffer = buf;
+        // Bandpass filter to sound like paper
+        const bp = ctx.createBiquadFilter();
+        bp.type = 'bandpass';
+        bp.frequency.value = 3200;
+        bp.Q.value = 1.5;
+        src.connect(bp);
+        bp.connect(ctx.destination);
+        src.start();
+      }
+
+      // 蓋章音 (Stamp thud: sub-bass impact + click layer)
+      function playSfxStamp() {
+        const ctx = ensureAudioCtx();
+        const now = ctx.currentTime;
+
+        // Layer 1: Sub-bass thud
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(85, now);
+        osc.frequency.exponentialRampToValueAtTime(40, now + 0.15);
+        gain.gain.setValueAtTime(0.5, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now);
+        osc.stop(now + 0.22);
+
+        // Layer 2: High-frequency click transient
+        const clickBuf = ctx.createBuffer(1, ctx.sampleRate * 0.015, ctx.sampleRate);
+        const clickData = clickBuf.getChannelData(0);
+        for (let i = 0; i < clickData.length; i++) {
+          clickData[i] = (Math.random() * 2 - 1) * Math.exp(-i / (clickData.length * 0.08)) * 0.4;
+        }
+        const clickSrc = ctx.createBufferSource();
+        clickSrc.buffer = clickBuf;
+        const hp = ctx.createBiquadFilter();
+        hp.type = 'highpass';
+        hp.frequency.value = 2000;
+        clickSrc.connect(hp);
+        hp.connect(ctx.destination);
+        clickSrc.start(now);
+
+        // Layer 3: Body resonance
+        const osc2 = ctx.createOscillator();
+        const gain2 = ctx.createGain();
+        osc2.type = 'triangle';
+        osc2.frequency.setValueAtTime(180, now);
+        osc2.frequency.exponentialRampToValueAtTime(60, now + 0.1);
+        gain2.gain.setValueAtTime(0.15, now);
+        gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+        osc2.connect(gain2);
+        gain2.connect(ctx.destination);
+        osc2.start(now);
+        osc2.stop(now + 0.15);
+      }
+
+      // 微點擊音 (Subtle click for grab start)
+      function playSfxClick() {
+        const ctx = ensureAudioCtx();
+        const now = ctx.currentTime;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(1200, now);
+        osc.frequency.exponentialRampToValueAtTime(800, now + 0.03);
+        gain.gain.setValueAtTime(0.15, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now);
+        osc.stop(now + 0.05);
+      }
+
+      // 彈回音 (Snap-back sound for when card resets)
+      function playSfxSnapback() {
+        const ctx = ensureAudioCtx();
+        const now = ctx.currentTime;
+        const osc = ctx.createOscillator();
+        const gain = ctx.createGain();
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(400, now);
+        osc.frequency.exponentialRampToValueAtTime(250, now + 0.06);
+        gain.gain.setValueAtTime(0.08, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+        osc.connect(gain);
+        gain.connect(ctx.destination);
+        osc.start(now);
+        osc.stop(now + 0.1);
+      }
+
+      // --- DOM Elements ---
+      const card = document.getElementById("swipe-card");
+      const edgeLeft = document.getElementById("edge-left");
+      const edgeRight = document.getElementById("edge-right");
+      const statRow = document.getElementById("stat-row");
+
+      let currentArgs = null;
+      let isDragging = false;
+      let startX = 0;
+      let startY = 0;
+      const threshold = 110;
+
+      const seasonConfig = {
+        spring: { glow1: 'var(--glow-spring)', glow2: 'rgba(76, 175, 80, 0.12)' },
+        summer: { glow1: 'var(--glow-summer)', glow2: 'rgba(255, 152, 0, 0.12)' },
+        fall:   { glow1: 'var(--glow-fall)', glow2: 'rgba(141, 110, 99, 0.12)' },
+        winter: { glow1: 'var(--glow-winter)', glow2: 'rgba(66, 165, 245, 0.12)' },
+      };
+
+      function render(args) {
+        currentArgs = args;
+
+        // Stats
+        const stats = [
+          { key: "HEALTH", icon: "❤️" },
+          { key: "IMMUNE", icon: "🛡️" },
+          { key: "SANITY", icon: "🧠" },
+          { key: "MONEY", icon: "💰" },
+        ];
+
+        statRow.innerHTML = stats
+          .map((s) => {
+            const val = args.current_stats[s.key] || 50;
+            const pct = Math.max(0, Math.min(100, val));
+            return `
+          <div class="gutreigns-stat-pillar" id="pillar-${s.key}">
+            <div class="stat-indicator" id="indicator-${s.key}"></div>
+            <div class="gutreigns-stat-icon-wrapper">
+              <div class="stat-icon-bg">${s.icon}</div>
+              <div class="stat-icon-fill" style="height:${pct}%;">
+                <div class="stat-icon-fill-content">${s.icon}</div>
+              </div>
+            </div>
+          </div>
+        `;
+          })
+          .join("");
+
+        // Ambient season glow (glassmorphism)
+        const season = seasonConfig[args.season] || seasonConfig.spring;
+        const orb1 = document.getElementById('glow-orb-1');
+        const orb2 = document.getElementById('glow-orb-2');
+        orb1.style.background = season.glow1;
+        orb2.style.background = season.glow2;
+        orb1.classList.add('active');
+        orb2.classList.add('active');
+
+        // Content (Text outside card)
+        document.getElementById("card-character").innerText =
+          args.character_line || "";
+        document.getElementById("card-text").innerText = args.text || "";
+        document.getElementById("card-silhouette").innerHTML =
+          args.silhouette_svg || "";
+
+        edgeLeft.innerText = args.left_label || "";
+        edgeRight.innerText = args.right_label || "";
+
+        const weekText = args.week ? `生存週數: ${args.week}` : "";
+        document.getElementById("swipe-hint").innerText = weekText;
+
+        // Reset and trigger appear bounce
+        resetCard(true);
+
+        sendMessageToStreamlitClient("streamlit:setFrameHeight", {
+          height: 600,
+        });
+      }
+
+      function resetCard(appearAnim = false) {
+        card.style.transition = appearAnim
+          ? "none"
+          : "transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275)";
+        card.style.transform = "translate(0, 0) rotate(0deg)";
+        
+        if (appearAnim) {
+          card.classList.remove("card-appear");
+          void card.offsetWidth; // trigger reflow
+          card.classList.add("card-appear");
+        }
+        
+        edgeLeft.style.opacity = 0;
+        edgeRight.style.opacity = 0;
+        clearIndicators();
+      }
+
+      // Neutral indicators
+      function showIndicators(fx) {
+        clearIndicators();
+        Object.entries(fx).forEach(([k, v]) => {
+          if (v === 0) return;
+          const el = document.getElementById("indicator-" + k);
+          if (el) {
+            el.classList.add("indicator-active");
+            if (Math.abs(v) > 15) {
+              el.classList.add("indicator-large");
+            }
+          }
+        });
+      }
+
+      function clearIndicators() {
+        document.querySelectorAll(".stat-indicator").forEach((el) => {
+          el.classList.remove("indicator-active", "indicator-large");
+        });
+      }
+
+      function handleCommit(direction) {
+        if (!currentArgs) return;
+
+        // SFX: Card slide + stamp
+        playSfxCardSlide();
+        setTimeout(playSfxStamp, 100);
+
+        const x = direction === "left" ? -window.innerWidth : window.innerWidth;
+        const rot = direction === "left" ? -45 : 45;
+
+        // Ease-in fast swoop out (No Loading Mask)
+        card.style.transition = "transform 0.25s ease-in";
+        card.style.transform = `translate(${x}px, 50px) rotate(${rot}deg)`;
+
+        currentArgs = null; // Block subsequent drags
+
+        setTimeout(() => {
+          setStreamlitComponentValue(direction);
+        }, 220); // slightly before transition ends for instant feel
+      }
+
+      // Input
+      function startDrag(e) {
+        if (!currentArgs) return;
+        isDragging = true;
+        startX = e.clientX || (e.touches && e.touches[0].clientX);
+        startY = e.clientY || (e.touches && e.touches[0].clientY);
+        card.style.transition = "none";
+        card.classList.remove("card-appear");
+        playSfxClick();
+      }
+
+      function moveDrag(e) {
+        if (!isDragging || !currentArgs) return;
+        const clientX = e.clientX || (e.touches && e.touches[0].clientX);
+        const clientY = e.clientY || (e.touches && e.touches[0].clientY);
+
+        const deltaX = clientX - startX;
+        const deltaY = clientY - startY;
+
+        // Natural rotation and tilt 
+        const rotate = deltaX / 10;
+        card.style.transform = `translate(${deltaX}px, ${deltaY * 0.2}px) rotate(${rotate}deg)`;
+
+        const progress = Math.min(Math.abs(deltaX) / (threshold * 0.8), 1);
+
+        if (deltaX > 20) {
+          edgeRight.style.opacity = progress;
+          edgeLeft.style.opacity = 0;
+          showIndicators(currentArgs.right_effect);
+        } else if (deltaX < -20) {
+          edgeLeft.style.opacity = progress;
+          edgeRight.style.opacity = 0;
+          showIndicators(currentArgs.left_effect);
+        } else {
+          edgeLeft.style.opacity = 0;
+          edgeRight.style.opacity = 0;
+          clearIndicators();
+        }
+      }
+
+      function endDrag(e) {
+        if (!isDragging) return;
+        isDragging = false;
+        const clientX =
+          e.clientX || (e.changedTouches && e.changedTouches[0].clientX);
+        const deltaX = clientX - startX;
+
+        if (deltaX > threshold) {
+          handleCommit("right");
+        } else if (deltaX < -threshold) {
+          handleCommit("left");
+        } else {
+          playSfxSnapback();
+          resetCard();
+        }
+      }
+
+      // Mouse
+      card.addEventListener("mousedown", startDrag);
+      document.addEventListener("mousemove", moveDrag);
+      document.addEventListener("mouseup", endDrag);
+
+      // Touch
+      card.addEventListener("touchstart", startDrag, { passive: true });
+      document.addEventListener("touchmove", moveDrag, { passive: true });
+      document.addEventListener("touchend", endDrag);
+
+      // Keyboard
+      document.addEventListener("keydown", (e) => {
+        if (!currentArgs) return;
+        if (e.key === "ArrowLeft") {
+          showIndicators(currentArgs.left_effect);
+          handleCommit("left");
+        }
+        if (e.key === "ArrowRight") {
+          showIndicators(currentArgs.right_effect);
+          handleCommit("right");
+        }
+      });
+    </script>
+  </body>
+</html>

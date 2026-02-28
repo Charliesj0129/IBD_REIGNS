@@ -1,0 +1,2056 @@
+[
+  {
+    "id": "daily_routine",
+    "text": "普通的一週，有些輕微的不適。",
+    "character_name": "小綾",
+    "character_role": "同事",
+    "chain_next": [
+      "aya_followup_1",
+      "aya_followup_2"
+    ],
+    "left": {
+      "label": "在家休息",
+      "effect": {
+        "SANITY": 5,
+        "MONEY": -5
+      }
+    },
+    "right": {
+      "label": "撐著上班",
+      "effect": {
+        "SANITY": -10,
+        "MONEY": 10
+      }
+    },
+    "conditions": {
+      "max_week": 13
+    },
+    "weight": 3,
+    "pool": "spring",
+    "theme": "social",
+    "rarity": "common"
+  },
+  {
+    "id": "steroid_start",
+    "text": "症狀突然加劇。醫師建議使用類固醇。",
+    "character_name": "林醫師",
+    "character_role": "腸胃科主治",
+    "chain_next": [
+      "dr_lin_followup"
+    ],
+    "left": {
+      "label": "接受類固醇",
+      "effect": {
+        "IMMUNE": -20,
+        "SANITY": -5
+      },
+      "steroid_use": true
+    },
+    "right": {
+      "label": "先不要",
+      "effect": {
+        "IMMUNE": 10,
+        "HEALTH": -5
+      }
+    },
+    "conditions": {
+      "min_week": 1,
+      "max_week": 26
+    },
+    "pool": "spring",
+    "theme": "treatment",
+    "rarity": "uncommon"
+  },
+  {
+    "id": "stop_steroid",
+    "text": "臉變得很腫脹，你想停掉類固醇。",
+    "character_name": "林醫師",
+    "character_role": "腸胃科主治",
+    "chain_next": [
+      "adherence_warning_1",
+      "adherence_warning_2"
+    ],
+    "left": {
+      "label": "立刻停藥",
+      "effect": {
+        "IMMUNE": -10
+      },
+      "stop_steroid": true
+    },
+    "right": {
+      "label": "慢慢減量",
+      "effect": {
+        "IMMUNE": -5,
+        "SANITY": -5
+      }
+    },
+    "conditions": {
+      "min_week": 2,
+      "max_week": 26
+    },
+    "pool": "spring",
+    "theme": "treatment",
+    "rarity": "uncommon"
+  },
+  {
+    "id": "biologic_start",
+    "text": "醫師建議開始生物製劑治療。",
+    "character_name": "林醫師",
+    "character_role": "腸胃科主治",
+    "chain_next": [
+      "dr_lin_biologic_followup"
+    ],
+    "left": {
+      "label": "開始治療",
+      "effect": {
+        "IMMUNE": -15,
+        "MONEY": -20
+      },
+      "biologic_id": "bio_a",
+      "induction_start": true
+    },
+    "right": {
+      "label": "拒絕",
+      "effect": {
+        "IMMUNE": 15
+      }
+    },
+    "conditions": {
+      "min_week": 5,
+      "max_week": 39
+    },
+    "pool": "summer",
+    "theme": "treatment",
+    "rarity": "rare"
+  },
+  {
+    "id": "dr_lin_followup",
+    "text": "林醫師檢查你的反應，詢問副作用的情況。",
+    "character_name": "林醫師",
+    "character_role": "腸胃科主治",
+    "left": {
+      "label": "如實回報",
+      "effect": {
+        "SANITY": -2,
+        "IMMUNE": -5
+      }
+    },
+    "right": {
+      "label": "淡化症狀",
+      "effect": {
+        "SANITY": 2,
+        "IMMUNE": 5
+      }
+    },
+    "conditions": {
+      "min_week": 2,
+      "max_week": 26
+    },
+    "pool": "spring",
+    "theme": "treatment",
+    "rarity": "common"
+  },
+  {
+    "id": "dr_lin_biologic_followup",
+    "text": "林醫師說明導入療程的排程，請你全力配合。",
+    "character_name": "林醫師",
+    "character_role": "腸胃科主治",
+    "left": {
+      "label": "決心遵循",
+      "effect": {
+        "IMMUNE": -5,
+        "SANITY": -2
+      }
+    },
+    "right": {
+      "label": "再考慮看看",
+      "effect": {
+        "IMMUNE": 5,
+        "SANITY": 1
+      }
+    },
+    "conditions": {
+      "min_week": 5,
+      "max_week": 39
+    },
+    "pool": "summer",
+    "theme": "treatment",
+    "rarity": "common"
+  },
+  {
+    "id": "biologic_injection",
+    "text": "排定的生物製劑注射週。",
+    "left": {
+      "label": "按時注射",
+      "effect": {
+        "IMMUNE": -10,
+        "MONEY": -10
+      },
+      "biologic_id": "bio_a",
+      "injection_required": true
+    },
+    "right": {
+      "label": "跳過注射",
+      "effect": {
+        "IMMUNE": 10
+      },
+      "biologic_id": "bio_a",
+      "injection_required": true,
+      "missed_injection": true
+    },
+    "forced": true,
+    "theme": "treatment",
+    "rarity": "common"
+  },
+  {
+    "id": "premium_treatment",
+    "text": "有進階的治療方案可選擇。",
+    "left": {
+      "label": "使用健保方案",
+      "effect": {
+        "HEALTH": 5
+      }
+    },
+    "right": {
+      "label": "自費選擇",
+      "effect": {
+        "HEALTH": 15,
+        "MONEY": -30
+      },
+      "cost_money": 30
+    },
+    "conditions": {
+      "min_week": 10,
+      "max_week": 39
+    },
+    "pool": "summer",
+    "theme": "treatment",
+    "rarity": "uncommon"
+  },
+  {
+    "id": "dr_google",
+    "text": "網路論壇上有人推薦神奇偏方。",
+    "character_name": "論壇貼文",
+    "character_role": "網路傳言",
+    "chain_next": [
+      "support_group_1",
+      "support_group_2"
+    ],
+    "left": {
+      "label": "忽略",
+      "effect": {
+        "SANITY": -2
+      }
+    },
+    "right": {
+      "label": "相信偏方",
+      "effect": {
+        "SANITY": 10,
+        "HEALTH": -15
+      }
+    },
+    "conditions": {
+      "min_week": 1,
+      "max_week": 52
+    },
+    "theme": "education",
+    "rarity": "common"
+  },
+  {
+    "id": "mild_treatment",
+    "text": "發炎期間，醫師提供溫和的治療選項。",
+    "left": {
+      "label": "接受治療",
+      "effect": {
+        "IMMUNE": -10
+      },
+      "mild_treatment": true
+    },
+    "right": {
+      "label": "暫不處理",
+      "effect": {
+        "IMMUNE": 5
+      }
+    },
+    "conditions": {
+      "min_week": 1,
+      "max_week": 52
+    },
+    "theme": "treatment",
+    "rarity": "common"
+  },
+  {
+    "id": "urgent_bathroom",
+    "text": "開會到一半突然急著上廁所。",
+    "character_name": "陳經理",
+    "character_role": "主管",
+    "chain_next": [
+      "manager_pressure_1",
+      "manager_pressure_2"
+    ],
+    "left": {
+      "label": "立刻衝出去",
+      "effect": {
+        "SANITY": -5,
+        "MONEY": -5
+      }
+    },
+    "right": {
+      "label": "硬撐",
+      "effect": {
+        "HEALTH": -10
+      }
+    },
+    "only_one_option": true,
+    "conditions": {
+      "min_week": 1,
+      "max_week": 52
+    },
+    "theme": "work",
+    "rarity": "common"
+  },
+  {
+    "id": "placebo",
+    "text": "阿姨推薦了一款「護腸」保健品。",
+    "character_name": "梅嬸",
+    "character_role": "親戚",
+    "left": {
+      "label": "試試看",
+      "effect": {
+        "HEALTH": 0
+      },
+      "impact": [
+        "HEALTH"
+      ]
+    },
+    "right": {
+      "label": "婉拒",
+      "effect": {
+        "SANITY": 0
+      }
+    },
+    "hint_deceptive": true,
+    "conditions": {
+      "min_week": 1,
+      "max_week": 52
+    },
+    "theme": "education",
+    "rarity": "common"
+  },
+  {
+    "id": "supplement_risk",
+    "text": "你正在服用抗凝血劑，考慮加吃保健品。",
+    "character_name": "梅嬸",
+    "character_role": "親戚",
+    "left": {
+      "label": "吃保健品",
+      "effect": {
+        "HEALTH": -5
+      },
+      "risk_tags": [
+        "ANTICOAGULANT"
+      ],
+      "risk_event_id": "bleeding"
+    },
+    "right": {
+      "label": "不吃",
+      "effect": {
+        "SANITY": 1
+      }
+    },
+    "conditions": {
+      "min_week": 1,
+      "max_week": 52
+    },
+    "theme": "education",
+    "rarity": "uncommon"
+  },
+  {
+    "id": "social_photo",
+    "text": "朋友們想拍團體照。",
+    "character_name": "同事",
+    "character_role": "朋友",
+    "left": {
+      "label": "入鏡拍照",
+      "effect": {
+        "SANITY": 5
+      }
+    },
+    "right": {
+      "label": "婉拒",
+      "effect": {
+        "SANITY": -5
+      }
+    },
+    "text_overrides": {
+      "MOON_FACE": "月亮臉讓你對拍照感到很不自在。"
+    },
+    "conditions": {
+      "min_week": 1,
+      "max_week": 52
+    },
+    "theme": "social",
+    "rarity": "common"
+  },
+  {
+    "id": "overconfidence",
+    "text": "你覺得自己好多了，大吃一頓麻辣鍋。",
+    "character_name": "內心之聲",
+    "character_role": "衝動的自我",
+    "left": {
+      "label": "繼續大吃",
+      "effect": {
+        "IMMUNE": 15,
+        "HEALTH": -10
+      }
+    },
+    "right": {
+      "label": "克制一下",
+      "effect": {
+        "SANITY": -5
+      }
+    },
+    "forced": true,
+    "theme": "lifestyle",
+    "rarity": "uncommon"
+  },
+  {
+    "id": "megacolon",
+    "text": "毒素蓄積引發巨結腸症。",
+    "left": {
+      "label": "急診處理",
+      "effect": {
+        "HEALTH": -20,
+        "SANITY": -10
+      }
+    },
+    "right": {
+      "label": "再等等看",
+      "effect": {
+        "HEALTH": -30
+      }
+    },
+    "forced": true,
+    "theme": "complication",
+    "rarity": "rare"
+  },
+  {
+    "id": "infection",
+    "text": "伺機性感染來襲。",
+    "character_name": "王護理師",
+    "character_role": "病房",
+    "left": {
+      "label": "住院治療",
+      "effect": {
+        "HEALTH": -10,
+        "SANITY": -5
+      }
+    },
+    "right": {
+      "label": "不理會",
+      "effect": {
+        "HEALTH": -20
+      }
+    },
+    "forced": true,
+    "theme": "complication",
+    "rarity": "rare"
+  },
+  {
+    "id": "bleeding",
+    "text": "藥物交互作用導致出血事件。",
+    "character_name": "急診醫師",
+    "character_role": "急診室",
+    "left": {
+      "label": "就醫處理",
+      "effect": {
+        "HEALTH": -10,
+        "MONEY": -10
+      }
+    },
+    "right": {
+      "label": "再觀察",
+      "effect": {
+        "HEALTH": -20
+      }
+    },
+    "forced": true,
+    "theme": "complication",
+    "rarity": "rare"
+  },
+  {
+    "id": "checkup",
+    "text": "季度回診檢查結果出爐。",
+    "character_name": "林醫師",
+    "character_role": "腸胃科主治",
+    "left": {
+      "label": "調整療程",
+      "effect": {
+        "IMMUNE": -5,
+        "MONEY": -5
+      }
+    },
+    "right": {
+      "label": "維持現狀",
+      "effect": {
+        "SANITY": 2
+      }
+    },
+    "forced": true,
+    "theme": "treatment",
+    "rarity": "uncommon"
+  },
+  {
+    "id": "surgery",
+    "text": "有穿孔風險，醫師建議手術。",
+    "character_name": "林醫師",
+    "character_role": "腸胃科主治",
+    "left": {
+      "label": "同意手術",
+      "effect": {
+        "HEALTH": 20,
+        "SANITY": -20
+      },
+      "add_tags": [
+        "POST_SURGERY"
+      ]
+    },
+    "right": {
+      "label": "拒絕手術",
+      "effect": {
+        "HEALTH": -10
+      }
+    },
+    "forced": true,
+    "theme": "complication",
+    "rarity": "legendary"
+  },
+  {
+    "id": "ostomy_care",
+    "text": "開始學習造口照護的日常。",
+    "character_name": "王護理師",
+    "character_role": "造口護理",
+    "left": {
+      "label": "認真練習",
+      "effect": {
+        "SANITY": -2,
+        "HEALTH": 5
+      }
+    },
+    "right": {
+      "label": "拖延逃避",
+      "effect": {
+        "SANITY": -5,
+        "HEALTH": -5
+      }
+    },
+    "pool": "post_surgery",
+    "forced": false,
+    "theme": "recovery",
+    "rarity": "uncommon"
+  },
+  {
+    "id": "winter_joint_pain",
+    "text": "寒流來襲，關節疼痛加劇。",
+    "character_name": "內心之聲",
+    "character_role": "疲憊",
+    "left": {
+      "label": "好好休息",
+      "effect": {
+        "SANITY": 5
+      }
+    },
+    "right": {
+      "label": "咬牙撐過",
+      "effect": {
+        "SANITY": -5
+      }
+    },
+    "conditions": {
+      "min_week": 40,
+      "max_week": 52
+    },
+    "weight": 4,
+    "tags": [
+      "joint_pain"
+    ],
+    "pool": "winter",
+    "theme": "seasonal",
+    "rarity": "common"
+  },
+  {
+    "id": "aya_followup_1",
+    "text": "小綾幫你代班，問你感覺如何。",
+    "character_name": "小綾",
+    "character_role": "同事",
+    "left": {
+      "label": "向她道謝",
+      "effect": {
+        "SANITY": 3,
+        "MONEY": -2
+      }
+    },
+    "right": {
+      "label": "說沒事",
+      "effect": {
+        "SANITY": -2
+      }
+    },
+    "conditions": {
+      "min_week": 2,
+      "max_week": 20
+    },
+    "pool": "spring",
+    "theme": "social",
+    "rarity": "common"
+  },
+  {
+    "id": "aya_followup_2",
+    "text": "小綾邀你下班後一起吃飯。",
+    "character_name": "小綾",
+    "character_role": "同事",
+    "chain_next": [
+      "aya_followup_3",
+      "aya_followup_4"
+    ],
+    "left": {
+      "label": "參加",
+      "effect": {
+        "SANITY": 4,
+        "HEALTH": -3
+      }
+    },
+    "right": {
+      "label": "婉拒",
+      "effect": {
+        "SANITY": -3
+      }
+    },
+    "conditions": {
+      "min_week": 2,
+      "max_week": 26
+    },
+    "pool": "spring",
+    "theme": "social",
+    "rarity": "common"
+  },
+  {
+    "id": "family_support_1",
+    "text": "媽媽特地煮了清淡的餐點給你。",
+    "character_name": "媽媽",
+    "character_role": "家人",
+    "chain_next": [
+      "family_support_2",
+      "family_support_3"
+    ],
+    "left": {
+      "label": "開心接受",
+      "effect": {
+        "SANITY": 5,
+        "HEALTH": 5
+      }
+    },
+    "right": {
+      "label": "不想吃",
+      "effect": {
+        "SANITY": -4
+      }
+    },
+    "conditions": {
+      "min_week": 1,
+      "max_week": 26
+    },
+    "pool": "spring",
+    "theme": "family",
+    "rarity": "common"
+  },
+  {
+    "id": "manager_pressure_1",
+    "text": "陳經理問你為什麼突然離席。",
+    "character_name": "陳經理",
+    "character_role": "主管",
+    "left": {
+      "label": "坦白說明",
+      "effect": {
+        "SANITY": 2,
+        "MONEY": -2
+      }
+    },
+    "right": {
+      "label": "找藉口搪塞",
+      "effect": {
+        "SANITY": -3
+      }
+    },
+    "conditions": {
+      "min_week": 1,
+      "max_week": 26
+    },
+    "pool": "spring",
+    "theme": "work",
+    "rarity": "uncommon"
+  },
+  {
+    "id": "manager_pressure_2",
+    "text": "陳經理在你發病期間排了更多工作。",
+    "character_name": "陳經理",
+    "character_role": "主管",
+    "chain_next": [
+      "hr_accommodation_1",
+      "hr_accommodation_2"
+    ],
+    "left": {
+      "label": "硬撐完成",
+      "effect": {
+        "SANITY": -6,
+        "MONEY": 5
+      }
+    },
+    "right": {
+      "label": "設定界線",
+      "effect": {
+        "SANITY": 3,
+        "MONEY": -4
+      }
+    },
+    "conditions": {
+      "min_week": 2,
+      "max_week": 26
+    },
+    "pool": "spring",
+    "theme": "work",
+    "rarity": "uncommon"
+  },
+  {
+    "id": "adherence_warning_1",
+    "text": "林醫師警告停藥可能導致復發。",
+    "character_name": "林醫師",
+    "character_role": "腸胃科主治",
+    "left": {
+      "label": "承諾遵從",
+      "effect": {
+        "SANITY": -1,
+        "IMMUNE": -5
+      }
+    },
+    "right": {
+      "label": "仍然猶豫",
+      "effect": {
+        "SANITY": 2,
+        "IMMUNE": 5
+      }
+    },
+    "conditions": {
+      "min_week": 2,
+      "max_week": 26
+    },
+    "pool": "spring",
+    "theme": "treatment",
+    "rarity": "common"
+  },
+  {
+    "id": "adherence_warning_2",
+    "text": "藥師給了一個藥盒和服藥建議。",
+    "character_name": "藥師",
+    "character_role": "照護團隊",
+    "chain_next": [
+      "monitoring_check_1",
+      "monitoring_check_2"
+    ],
+    "left": {
+      "label": "接受藥盒",
+      "effect": {
+        "SANITY": 2,
+        "IMMUNE": -3
+      }
+    },
+    "right": {
+      "label": "婉拒",
+      "effect": {
+        "SANITY": -2
+      }
+    },
+    "conditions": {
+      "min_week": 3,
+      "max_week": 26
+    },
+    "pool": "spring",
+    "theme": "treatment",
+    "rarity": "common"
+  },
+  {
+    "id": "support_group_1",
+    "text": "病友會分享發炎期的因應小技巧。",
+    "character_name": "病友會",
+    "character_role": "夥伴",
+    "left": {
+      "label": "加入討論",
+      "effect": {
+        "SANITY": 4
+      }
+    },
+    "right": {
+      "label": "默默旁聽",
+      "effect": {
+        "SANITY": -2
+      }
+    },
+    "conditions": {
+      "min_week": 1,
+      "max_week": 39
+    },
+    "pool": "spring",
+    "theme": "support",
+    "rarity": "common"
+  },
+  {
+    "id": "support_group_2",
+    "text": "病友推薦查證過的資源，勸你別信偏方。",
+    "character_name": "病友會",
+    "character_role": "夥伴",
+    "chain_next": [
+      "support_group_3",
+      "support_group_4"
+    ],
+    "left": {
+      "label": "聽從建議",
+      "effect": {
+        "IMMUNE": -4,
+        "SANITY": 2
+      }
+    },
+    "right": {
+      "label": "不理會",
+      "effect": {
+        "IMMUNE": 4
+      }
+    },
+    "conditions": {
+      "min_week": 2,
+      "max_week": 39
+    },
+    "pool": "spring",
+    "theme": "support",
+    "rarity": "common"
+  },
+  {
+    "id": "hr_accommodation_1",
+    "text": "人資表示如果提交醫療文件，可以彈性上班。",
+    "character_name": "人資",
+    "character_role": "公司",
+    "left": {
+      "label": "提交文件",
+      "effect": {
+        "SANITY": -2,
+        "MONEY": 2
+      }
+    },
+    "right": {
+      "label": "不想揭露",
+      "effect": {
+        "SANITY": -3
+      }
+    },
+    "conditions": {
+      "min_week": 3,
+      "max_week": 39
+    },
+    "pool": "summer",
+    "theme": "work",
+    "rarity": "uncommon"
+  },
+  {
+    "id": "hr_accommodation_2",
+    "text": "主管同意幫你調整截止日期。",
+    "character_name": "陳經理",
+    "character_role": "主管",
+    "left": {
+      "label": "接受調整",
+      "effect": {
+        "SANITY": 3,
+        "MONEY": -2
+      }
+    },
+    "right": {
+      "label": "拒絕幫助",
+      "effect": {
+        "SANITY": -2
+      }
+    },
+    "conditions": {
+      "min_week": 4,
+      "max_week": 39
+    },
+    "pool": "summer",
+    "theme": "work",
+    "rarity": "uncommon"
+  },
+  {
+    "id": "monitoring_check_1",
+    "text": "安排抽血監測發炎指標。",
+    "character_name": "王護理師",
+    "character_role": "照護團隊",
+    "left": {
+      "label": "去抽血",
+      "effect": {
+        "IMMUNE": -3,
+        "MONEY": -2
+      }
+    },
+    "right": {
+      "label": "跳過檢查",
+      "effect": {
+        "IMMUNE": 4,
+        "SANITY": 1
+      }
+    },
+    "conditions": {
+      "min_week": 3,
+      "max_week": 39
+    },
+    "pool": "summer",
+    "theme": "treatment",
+    "rarity": "uncommon"
+  },
+  {
+    "id": "monitoring_check_2",
+    "text": "林醫師和你討論副作用，調整劑量。",
+    "character_name": "林醫師",
+    "character_role": "腸胃科主治",
+    "left": {
+      "label": "調整劑量",
+      "effect": {
+        "IMMUNE": -4,
+        "SANITY": -2
+      }
+    },
+    "right": {
+      "label": "維持劑量",
+      "effect": {
+        "IMMUNE": 3,
+        "SANITY": 1
+      }
+    },
+    "conditions": {
+      "min_week": 4,
+      "max_week": 39
+    },
+    "pool": "summer",
+    "theme": "treatment",
+    "rarity": "uncommon"
+  },
+  {
+    "id": "aya_followup_3",
+    "text": "小綾問你需不需要她幫忙跟主管溝通。",
+    "character_name": "小綾",
+    "character_role": "同事",
+    "left": {
+      "label": "接受幫忙",
+      "effect": {
+        "SANITY": 3,
+        "MONEY": -1
+      }
+    },
+    "right": {
+      "label": "自己處理",
+      "effect": {
+        "SANITY": -2
+      }
+    },
+    "conditions": {
+      "min_week": 3,
+      "max_week": 26
+    },
+    "pool": "spring",
+    "theme": "social",
+    "rarity": "common"
+  },
+  {
+    "id": "aya_followup_4",
+    "text": "小綾帶你去一個安靜的地方休息。",
+    "character_name": "小綾",
+    "character_role": "同事",
+    "left": {
+      "label": "好好休息",
+      "effect": {
+        "SANITY": 2,
+        "IMMUNE": -2
+      }
+    },
+    "right": {
+      "label": "婉拒",
+      "effect": {
+        "SANITY": -1
+      }
+    },
+    "conditions": {
+      "min_week": 3,
+      "max_week": 26
+    },
+    "pool": "spring",
+    "theme": "social",
+    "rarity": "common"
+  },
+  {
+    "id": "family_support_2",
+    "text": "家人問可以怎麼幫忙陪你看診。",
+    "character_name": "媽媽",
+    "character_role": "家人",
+    "left": {
+      "label": "請家人陪同",
+      "effect": {
+        "SANITY": 3,
+        "MONEY": -1
+      }
+    },
+    "right": {
+      "label": "說不用",
+      "effect": {
+        "SANITY": -2
+      }
+    },
+    "conditions": {
+      "min_week": 2,
+      "max_week": 26
+    },
+    "pool": "spring",
+    "theme": "family",
+    "rarity": "common"
+  },
+  {
+    "id": "family_support_3",
+    "text": "家庭聚餐讓你對飲食選擇感到壓力。",
+    "character_name": "家人",
+    "character_role": "家庭",
+    "left": {
+      "label": "說明飲食限制",
+      "effect": {
+        "SANITY": 2,
+        "HEALTH": 2
+      }
+    },
+    "right": {
+      "label": "隨便吃",
+      "effect": {
+        "SANITY": -2,
+        "HEALTH": -3
+      }
+    },
+    "conditions": {
+      "min_week": 3,
+      "max_week": 26
+    },
+    "pool": "spring",
+    "theme": "family",
+    "rarity": "common"
+  },
+  {
+    "id": "support_group_3",
+    "text": "資深病友分享了一份發炎期準備清單。",
+    "character_name": "病友會",
+    "character_role": "夥伴",
+    "left": {
+      "label": "收藏清單",
+      "effect": {
+        "SANITY": 2,
+        "IMMUNE": -2
+      }
+    },
+    "right": {
+      "label": "不需要",
+      "effect": {
+        "SANITY": -1
+      }
+    },
+    "conditions": {
+      "min_week": 3,
+      "max_week": 39
+    },
+    "pool": "summer",
+    "theme": "support",
+    "rarity": "common"
+  },
+  {
+    "id": "support_group_4",
+    "text": "大家邀你分享自己的經歷。",
+    "character_name": "病友會",
+    "character_role": "夥伴",
+    "left": {
+      "label": "分享",
+      "effect": {
+        "SANITY": 4
+      }
+    },
+    "right": {
+      "label": "暫時不說",
+      "effect": {
+        "SANITY": -2
+      }
+    },
+    "conditions": {
+      "min_week": 4,
+      "max_week": 39
+    },
+    "pool": "summer",
+    "theme": "support",
+    "rarity": "common"
+  },
+  {
+    "id": "flare_episode",
+    "text": "發炎指數飆升，凌晨三點被腹絞痛痛醒。",
+    "character_name": "內心之聲",
+    "character_role": "身體",
+    "left": {
+      "label": "打給林醫師",
+      "effect": {
+        "IMMUNE": -10,
+        "MONEY": -5,
+        "SANITY": -3
+      }
+    },
+    "right": {
+      "label": "撐到天亮",
+      "effect": {
+        "HEALTH": -15,
+        "SANITY": -5
+      }
+    },
+    "forced": true,
+    "theme": "complication",
+    "rarity": "uncommon"
+  },
+  {
+    "id": "diet_choice_flare",
+    "text": "好想吃麻辣鍋，但腸道正在發炎。",
+    "character_name": "內心之聲",
+    "character_role": "食慾",
+    "left": {
+      "label": "吃清淡食物",
+      "effect": {
+        "HEALTH": 3,
+        "SANITY": -3
+      }
+    },
+    "right": {
+      "label": "大吃麻辣鍋",
+      "effect": {
+        "HEALTH": -8,
+        "SANITY": 5
+      },
+      "risk_tags": [
+        "ACTIVE_FLARE"
+      ],
+      "risk_event_id": "flare_episode"
+    },
+    "conditions": {
+      "min_week": 1,
+      "max_week": 52
+    },
+    "theme": "lifestyle",
+    "rarity": "common",
+    "education": {
+      "title": "飲食與 IBD",
+      "content": "在發炎活動期間，避免刺激性食物有助於減輕症狀嚴重度。",
+      "source": "ECCO Guidelines 2023"
+    }
+  },
+  {
+    "id": "sleep_crisis",
+    "text": "連續三個晚上被疼痛吵得睡不著。",
+    "character_name": "內心之聲",
+    "character_role": "疲憊不堪",
+    "left": {
+      "label": "吃安眠藥",
+      "effect": {
+        "SANITY": 5,
+        "HEALTH": -2
+      },
+      "add_tags": [
+        "SLEEP_DEPRIVED"
+      ]
+    },
+    "right": {
+      "label": "硬撐",
+      "effect": {
+        "SANITY": -10
+      },
+      "add_tags": [
+        "SLEEP_DEPRIVED"
+      ]
+    },
+    "conditions": {
+      "min_week": 1,
+      "max_week": 52
+    },
+    "theme": "lifestyle",
+    "rarity": "uncommon"
+  },
+  {
+    "id": "exercise_choice",
+    "text": "小綾約你早上去慢跑。",
+    "character_name": "小綾",
+    "character_role": "同事",
+    "left": {
+      "label": "改成散步",
+      "effect": {
+        "SANITY": 3,
+        "HEALTH": 2,
+        "IMMUNE": -2
+      }
+    },
+    "right": {
+      "label": "今天不去",
+      "effect": {
+        "SANITY": -2
+      }
+    },
+    "conditions": {
+      "min_week": 1,
+      "max_week": 52,
+      "forbidden_tags": [
+        "ACTIVE_FLARE"
+      ]
+    },
+    "theme": "lifestyle",
+    "rarity": "common"
+  },
+  {
+    "id": "anemia_onset",
+    "text": "抽血報告顯示慢性出血導致缺鐵性貧血。",
+    "character_name": "林醫師",
+    "character_role": "腸胃科主治",
+    "left": {
+      "label": "鐵劑靜脈注射",
+      "effect": {
+        "HEALTH": 8,
+        "MONEY": -15,
+        "SANITY": -3
+      }
+    },
+    "right": {
+      "label": "口服鐵劑",
+      "effect": {
+        "HEALTH": 3,
+        "MONEY": -3,
+        "SANITY": -1
+      },
+      "add_tags": [
+        "ANEMIA"
+      ]
+    },
+    "conditions": {
+      "min_week": 8,
+      "max_week": 45
+    },
+    "theme": "treatment",
+    "rarity": "uncommon",
+    "education": {
+      "title": "IBD 與缺鐵性貧血",
+      "content": "高達 45% 的 IBD 患者會出現缺鐵性貧血。靜脈注射鐵劑效果較好但費用較高。",
+      "source": "ECCO Guidelines 2023"
+    }
+  },
+  {
+    "id": "insurance_fight",
+    "text": "健保拒絕給付生物製劑治療。",
+    "character_name": "保險專員",
+    "character_role": "健保體系",
+    "left": {
+      "label": "提出申覆",
+      "effect": {
+        "SANITY": -8,
+        "MONEY": -3
+      }
+    },
+    "right": {
+      "label": "換成便宜的藥",
+      "effect": {
+        "IMMUNE": 10,
+        "MONEY": 5,
+        "SANITY": -3
+      }
+    },
+    "conditions": {
+      "min_week": 10,
+      "max_week": 45
+    },
+    "theme": "treatment",
+    "rarity": "rare"
+  },
+  {
+    "id": "night_emergency",
+    "text": "半夜嚴重血便。急診室要開車 30 分鐘。",
+    "character_name": "內心之聲",
+    "character_role": "緊急狀況",
+    "left": {
+      "label": "衝去急診",
+      "effect": {
+        "HEALTH": -5,
+        "MONEY": -20,
+        "SANITY": -8
+      }
+    },
+    "right": {
+      "label": "等到早上",
+      "effect": {
+        "HEALTH": -15,
+        "SANITY": -3
+      }
+    },
+    "conditions": {
+      "min_week": 1,
+      "max_week": 52
+    },
+    "theme": "complication",
+    "rarity": "rare"
+  },
+  {
+    "id": "partner_strain",
+    "text": "你的另一半又因為取消約會而生氣了。",
+    "character_name": "伴侶",
+    "character_role": "感情",
+    "left": {
+      "label": "好好溝通",
+      "effect": {
+        "SANITY": 5,
+        "MONEY": -2
+      }
+    },
+    "right": {
+      "label": "迴避話題",
+      "effect": {
+        "SANITY": -8
+      }
+    },
+    "conditions": {
+      "min_week": 5,
+      "max_week": 52
+    },
+    "theme": "social",
+    "rarity": "uncommon"
+  },
+  {
+    "id": "mindfulness_class",
+    "text": "護理師推薦了免費的正念課程，專為慢性病患者設計。",
+    "character_name": "王護理師",
+    "character_role": "照護團隊",
+    "left": {
+      "label": "報名試試",
+      "effect": {
+        "SANITY": 8,
+        "IMMUNE": -3
+      }
+    },
+    "right": {
+      "label": "沒時間",
+      "effect": {
+        "SANITY": -2
+      }
+    },
+    "conditions": {
+      "min_week": 5,
+      "max_week": 45
+    },
+    "theme": "support",
+    "rarity": "uncommon",
+    "education": {
+      "title": "壓力與 IBD",
+      "content": "正念和認知行為治療已被證實能減少 IBD 患者的焦慮和憂鬱，並可能改善疾病預後。",
+      "source": "Gastroenterology 2021"
+    }
+  },
+  {
+    "id": "cold_flu_season",
+    "text": "流感季來臨，身邊的人紛紛中標。",
+    "character_name": "內心之聲",
+    "character_role": "警覺",
+    "left": {
+      "label": "打流感疫苗",
+      "effect": {
+        "IMMUNE": -5,
+        "MONEY": -2,
+        "HEALTH": 3
+      }
+    },
+    "right": {
+      "label": "賭一把",
+      "effect": {
+        "IMMUNE": 3
+      },
+      "risk_tags": [
+        "ACTIVE_FLARE"
+      ],
+      "risk_event_id": "infection"
+    },
+    "conditions": {
+      "min_week": 35,
+      "max_week": 52
+    },
+    "pool": "winter",
+    "theme": "seasonal",
+    "rarity": "uncommon",
+    "education": {
+      "title": "IBD 患者的疫苗接種",
+      "content": "使用免疫抑制劑的 IBD 患者應接種不活化疫苗。活性疫苗可能有禁忌。",
+      "source": "ACG Clinical Guideline 2022"
+    }
+  },
+  {
+    "id": "steroid_side_effect",
+    "text": "月亮臉和體重增加越來越明顯，同事都在看你。",
+    "character_name": "內心之聲",
+    "character_role": "自我形象",
+    "left": {
+      "label": "跟林醫師討論減量",
+      "effect": {
+        "IMMUNE": 5,
+        "SANITY": 2
+      }
+    },
+    "right": {
+      "label": "默默忍受",
+      "effect": {
+        "SANITY": -8
+      }
+    },
+    "conditions": {
+      "min_week": 3,
+      "max_week": 52,
+      "required_tags": [
+        "MOON_FACE"
+      ]
+    },
+    "theme": "treatment",
+    "rarity": "uncommon"
+  },
+  {
+    "id": "eim_joint_pain",
+    "text": "膝蓋劇烈疼痛。林醫師說這是腸外表現。",
+    "character_name": "林醫師",
+    "character_role": "腸胃科主治",
+    "left": {
+      "label": "轉診風濕科",
+      "effect": {
+        "HEALTH": 3,
+        "MONEY": -8,
+        "SANITY": -2
+      },
+      "add_tags": [
+        "JOINT_PAIN"
+      ]
+    },
+    "right": {
+      "label": "吃止痛藥",
+      "effect": {
+        "HEALTH": -5,
+        "SANITY": 2,
+        "IMMUNE": 3
+      },
+      "add_tags": [
+        "JOINT_PAIN"
+      ]
+    },
+    "conditions": {
+      "min_week": 10,
+      "max_week": 52
+    },
+    "tags": [
+      "joint_pain"
+    ],
+    "theme": "complication",
+    "rarity": "uncommon",
+    "education": {
+      "title": "腸外表現 (EIM)",
+      "content": "高達 40% 的 IBD 患者會出現腸道以外的症狀，包括關節疼痛、皮膚病變和眼部發炎。",
+      "source": "Nat Rev Gastroenterol Hepatol 2021"
+    }
+  },
+  {
+    "id": "eim_skin_rash",
+    "text": "小腿出現紅色壓痛結節，可能是結節性紅斑。",
+    "character_name": "皮膚科醫師",
+    "character_role": "專科",
+    "left": {
+      "label": "積極治療",
+      "effect": {
+        "IMMUNE": -8,
+        "MONEY": -10,
+        "HEALTH": 5
+      },
+      "add_tags": [
+        "SKIN_EIM"
+      ]
+    },
+    "right": {
+      "label": "觀察追蹤",
+      "effect": {
+        "HEALTH": -3,
+        "SANITY": -5
+      },
+      "add_tags": [
+        "SKIN_EIM"
+      ]
+    },
+    "conditions": {
+      "min_week": 12,
+      "max_week": 45
+    },
+    "theme": "complication",
+    "rarity": "rare",
+    "education": {
+      "title": "結節性紅斑與 IBD",
+      "content": "結節性紅斑是 IBD 最常見的皮膚表現，約影響 15% 的患者，通常與疾病活動度相關。",
+      "source": "ECCO Guidelines 2023"
+    }
+  },
+  {
+    "id": "eim_eye_inflammation",
+    "text": "你的眼睛又紅又痛。眼科醫師懷疑是葡萄膜炎。",
+    "character_name": "眼科醫師",
+    "character_role": "專科",
+    "left": {
+      "label": "類固醇眼藥水",
+      "effect": {
+        "HEALTH": 3,
+        "MONEY": -5,
+        "SANITY": -2
+      },
+      "steroid_use": true,
+      "add_tags": [
+        "EYE_EIM"
+      ]
+    },
+    "right": {
+      "label": "先不處理",
+      "effect": {
+        "HEALTH": -8,
+        "SANITY": -5
+      },
+      "add_tags": [
+        "EYE_EIM"
+      ]
+    },
+    "conditions": {
+      "min_week": 15,
+      "max_week": 52
+    },
+    "theme": "complication",
+    "rarity": "rare",
+    "education": {
+      "title": "IBD 與葡萄膜炎",
+      "content": "葡萄膜炎（眼部發炎）發生在約 8% 的 IBD 患者身上。及時治療可防止永久性視力損傷。",
+      "source": "Ophthalmology 2020"
+    }
+  },
+  {
+    "id": "recovery_walk",
+    "text": "你在公園散步了 20 分鐘，不用急著找廁所。",
+    "character_name": "內心之聲",
+    "character_role": "希望",
+    "left": {
+      "label": "慶祝這個進步",
+      "effect": {
+        "SANITY": 5,
+        "HEALTH": 3
+      }
+    },
+    "right": {
+      "label": "還是很擔心",
+      "effect": {
+        "SANITY": -2
+      }
+    },
+    "conditions": {
+      "min_week": 8,
+      "max_week": 52,
+      "forbidden_tags": [
+        "ACTIVE_FLARE"
+      ]
+    },
+    "theme": "recovery",
+    "rarity": "common"
+  },
+  {
+    "id": "remission_milestone",
+    "text": "林醫師說你的糞便鈣衛蛋白首次恢復正常。",
+    "character_name": "林醫師",
+    "character_role": "腸胃科主治",
+    "left": {
+      "label": "維持現有用藥",
+      "effect": {
+        "IMMUNE": -3,
+        "SANITY": 8,
+        "MONEY": -3
+      }
+    },
+    "right": {
+      "label": "能不能減藥",
+      "effect": {
+        "IMMUNE": 5,
+        "SANITY": 3,
+        "MONEY": 5
+      }
+    },
+    "conditions": {
+      "min_week": 20,
+      "max_week": 52,
+      "required_tags": [
+        "MUCOSAL_REPAIR"
+      ]
+    },
+    "theme": "recovery",
+    "rarity": "uncommon",
+    "education": {
+      "title": "糞便鈣衛蛋白",
+      "content": "糞便鈣衛蛋白是腸道發炎的非侵入性指標。數值低於 150 μg/g 表示腸黏膜正在修復。",
+      "source": "Gut 2022"
+    }
+  },
+  {
+    "id": "medication_reminder",
+    "text": "這週又忘了吃好幾次晚上的藥。",
+    "character_name": "手機鬧鐘",
+    "character_role": "提醒",
+    "left": {
+      "label": "買藥盒整理",
+      "effect": {
+        "IMMUNE": -3,
+        "SANITY": -1,
+        "MONEY": -1
+      }
+    },
+    "right": {
+      "label": "想到再吃",
+      "effect": {
+        "IMMUNE": 5,
+        "SANITY": 1
+      }
+    },
+    "conditions": {
+      "min_week": 3,
+      "max_week": 52
+    },
+    "theme": "treatment",
+    "rarity": "common",
+    "education": {
+      "title": "藥物順從性",
+      "content": "未規律服用維持治療藥物會使復發風險增加 2-5 倍。藥盒和鬧鐘可顯著改善順從性。",
+      "source": "Inflamm Bowel Dis 2021"
+    }
+  },
+  {
+    "id": "biologic_switch",
+    "text": "目前的生物製劑效果不理想，林醫師建議換藥。",
+    "character_name": "林醫師",
+    "character_role": "腸胃科主治",
+    "left": {
+      "label": "換藥",
+      "effect": {
+        "IMMUNE": -10,
+        "MONEY": -15,
+        "SANITY": -5,
+        "HEALTH": 5
+      },
+      "biologic_id": "vedolizumab"
+    },
+    "right": {
+      "label": "先不換",
+      "effect": {
+        "IMMUNE": 5,
+        "HEALTH": -5
+      }
+    },
+    "conditions": {
+      "min_week": 15,
+      "max_week": 45
+    },
+    "theme": "treatment",
+    "rarity": "rare",
+    "education": {
+      "title": "生物製劑換藥",
+      "content": "當一種生物製劑失效時，換用不同機制的藥物可在 30-50% 的患者中達到緩解。",
+      "source": "Lancet Gastroenterol Hepatol 2023"
+    }
+  },
+  {
+    "id": "therapy_deescalation",
+    "text": "病情穩定好幾個月了。林醫師建議考慮減藥。",
+    "character_name": "林醫師",
+    "character_role": "腸胃科主治",
+    "left": {
+      "label": "同意減藥",
+      "effect": {
+        "IMMUNE": 5,
+        "MONEY": 8,
+        "SANITY": 3
+      }
+    },
+    "right": {
+      "label": "維持原劑量",
+      "effect": {
+        "IMMUNE": -3,
+        "MONEY": -5,
+        "SANITY": 1
+      }
+    },
+    "conditions": {
+      "min_week": 30,
+      "max_week": 50,
+      "required_tags": [
+        "MUCOSAL_REPAIR"
+      ]
+    },
+    "theme": "recovery",
+    "rarity": "uncommon"
+  },
+  {
+    "id": "online_community",
+    "text": "IBD 病友團體邀你加入線上論壇。",
+    "character_name": "線上社群",
+    "character_role": "社群",
+    "left": {
+      "label": "加入參與",
+      "effect": {
+        "SANITY": 6,
+        "IMMUNE": -2
+      }
+    },
+    "right": {
+      "label": "潛水旁觀",
+      "effect": {
+        "SANITY": 2
+      }
+    },
+    "conditions": {
+      "min_week": 5,
+      "max_week": 45
+    },
+    "theme": "support",
+    "rarity": "uncommon"
+  },
+  {
+    "id": "therapist_referral",
+    "text": "林醫師建議你去看專攻慢性病的心理師。",
+    "character_name": "林醫師",
+    "character_role": "腸胃科主治",
+    "left": {
+      "label": "預約看診",
+      "effect": {
+        "SANITY": 10,
+        "MONEY": -8
+      }
+    },
+    "right": {
+      "label": "還沒準備好",
+      "effect": {
+        "SANITY": -3
+      }
+    },
+    "conditions": {
+      "min_week": 8,
+      "max_week": 45
+    },
+    "theme": "support",
+    "rarity": "uncommon",
+    "education": {
+      "title": "心理治療與 IBD",
+      "content": "心理介入（認知行為治療、接受與承諾治療）能減少 IBD 患者的焦慮和憂鬱，並可能改善疾病結果。",
+      "source": "Cochrane Review 2023"
+    }
+  },
+  {
+    "id": "diet_hotpot",
+    "text": "部門聚餐在麻辣鍋店，紅油正在滾。",
+    "left": {
+      "label": "跟大家一起吃辣",
+      "effect": {
+        "SANITY": 8,
+        "HEALTH": -5
+      },
+      "diet_delta": -3
+    },
+    "right": {
+      "label": "只喝清湯",
+      "effect": {
+        "SANITY": -5
+      },
+      "diet_delta": 1
+    },
+    "theme": "lifestyle",
+    "rarity": "common"
+  },
+  {
+    "id": "diet_supplements",
+    "text": "廣告寫著「護腸薑黃素膠囊」，很貴但看起來很厲害。",
+    "left": {
+      "label": "買一瓶",
+      "effect": {
+        "MONEY": -15,
+        "SANITY": 2
+      },
+      "diet_delta": 2
+    },
+    "right": {
+      "label": "省錢",
+      "effect": {},
+      "diet_delta": 0
+    },
+    "theme": "lifestyle",
+    "rarity": "uncommon"
+  },
+  {
+    "id": "diet_fiber_smoothie",
+    "text": "媽媽打了一杯高纖維羽衣甘藍汁。「排毒用的！」她說。",
+    "left": {
+      "label": "喝了讓她開心",
+      "effect": {
+        "SANITY": 2,
+        "HEALTH": -3
+      },
+      "diet_delta": -1
+    },
+    "right": {
+      "label": "堅定拒絕",
+      "effect": {
+        "SANITY": -2
+      },
+      "diet_delta": 0
+    },
+    "theme": "family",
+    "rarity": "common"
+  },
+  {
+    "id": "diet_peer_pressure_alcohol",
+    "text": "喜宴上大家都在敬酒乾杯，你感覺格格不入。",
+    "left": {
+      "label": "喝一杯",
+      "effect": {
+        "SANITY": 5,
+        "IMMUNE": -5
+      },
+      "diet_delta": -2
+    },
+    "right": {
+      "label": "用水乾杯",
+      "effect": {
+        "SANITY": -5
+      },
+      "diet_delta": 1
+    },
+    "theme": "social",
+    "rarity": "uncommon"
+  },
+  {
+    "id": "diet_midnight_snack",
+    "text": "凌晨兩點肚子餓了，冰箱裡有剩下的披薩。",
+    "left": {
+      "label": "吃披薩",
+      "effect": {
+        "SANITY": 3,
+        "HEALTH": -2
+      },
+      "diet_delta": -1
+    },
+    "right": {
+      "label": "吃根香蕉",
+      "effect": {},
+      "diet_delta": 1
+    },
+    "theme": "lifestyle",
+    "rarity": "common"
+  },
+  {
+    "id": "surgery_consult_decision",
+    "text": "狹窄越來越嚴重，外科醫師在圖上劃出切除範圍。",
+    "left": {
+      "label": "安排手術",
+      "effect": {},
+      "chain_next": [
+        "surgery_pre_op_marking"
+      ]
+    },
+    "right": {
+      "label": "拖延觀察",
+      "effect": {
+        "HEALTH": -10,
+        "IMMUNE": -5
+      }
+    },
+    "conditions": {
+      "min_week": 15,
+      "max_health": 40
+    },
+    "theme": "treatment",
+    "rarity": "rare",
+    "tags": [
+      "surgery_path"
+    ]
+  },
+  {
+    "id": "surgery_pre_op_marking",
+    "text": "護理師在你的腹部畫了造口的預備位置。「以防萬一。」她說。",
+    "left": {
+      "label": "詢問造口照護",
+      "effect": {},
+      "ostomy_skill_delta": 2,
+      "chain_next": [
+        "surgery_procedure_day"
+      ]
+    },
+    "right": {
+      "label": "害怕地別過頭",
+      "effect": {
+        "SANITY": -5
+      },
+      "chain_next": [
+        "surgery_procedure_day"
+      ]
+    },
+    "theme": "treatment",
+    "rarity": "rare",
+    "tags": [
+      "surgery_path"
+    ]
+  },
+  {
+    "id": "surgery_procedure_day",
+    "text": "你從麻醉中醒來。肚子上多了一個袋子。手術結束了。",
+    "left": {
+      "label": "看看造口袋",
+      "effect": {
+        "HEALTH": -20,
+        "IMMUNE": 20
+      },
+      "add_tags": [
+        "OSTOMY_BAG",
+        "POST_SURGERY"
+      ],
+      "chain_next": [
+        "ostomy_learning_curve"
+      ]
+    },
+    "right": {
+      "label": "閉上眼睛",
+      "effect": {
+        "HEALTH": -20,
+        "IMMUNE": 20,
+        "SANITY": -5
+      },
+      "add_tags": [
+        "OSTOMY_BAG",
+        "POST_SURGERY"
+      ],
+      "chain_next": [
+        "ostomy_learning_curve"
+      ]
+    },
+    "theme": "treatment",
+    "rarity": "rare",
+    "tags": [
+      "surgery_path"
+    ]
+  },
+  {
+    "id": "ostomy_learning_curve",
+    "text": "造口護理師正在教你怎麼更換底座。看起來很複雜。",
+    "left": {
+      "label": "認真練習",
+      "effect": {
+        "SANITY": -5
+      },
+      "ostomy_skill_delta": 3
+    },
+    "right": {
+      "label": "讓護理師代勞",
+      "effect": {},
+      "ostomy_skill_delta": 1
+    },
+    "conditions": {
+      "required_tags": [
+        "OSTOMY_BAG"
+      ]
+    },
+    "theme": "recovery",
+    "rarity": "common"
+  },
+  {
+    "id": "ostomy_leak_public",
+    "text": "在超市逛到一半，皮膚上感覺一股溫熱⋯⋯天啊。",
+    "left": {
+      "label": "衝進廁所",
+      "effect": {
+        "SANITY": -5
+      },
+      "ostomy_skill_delta": 1
+    },
+    "right": {
+      "label": "慌張呆住",
+      "effect": {
+        "SANITY": -15
+      }
+    },
+    "conditions": {
+      "required_tags": [
+        "OSTOMY_BAG"
+      ]
+    },
+    "theme": "social",
+    "rarity": "uncommon"
+  },
+  {
+    "id": "ostomy_leak_event",
+    "text": "底座黏膠鬆脫了。你聞到味道，感覺到濕氣。",
+    "left": {
+      "label": "立刻更換",
+      "effect": {
+        "SANITY": -5,
+        "HEALTH": 2
+      },
+      "text_overrides": {
+        "emergency": "Find a disabled toilet ASAP"
+      }
+    },
+    "right": {
+      "label": "用膠帶撐一下",
+      "effect": {
+        "SANITY": -2,
+        "HEALTH": -5,
+        "IMMUNE": -5
+      },
+      "tags": [
+        "skin_irritation"
+      ]
+    },
+    "theme": "complication",
+    "rarity": "rare",
+    "failed_condition_text": "Requires OSTOMY_BAG",
+    "text_overrides": {
+      "emergency": "趕快找無障礙廁所"
+    }
+  },
+  {
+    "id": "social_breakdown",
+    "text": "朋友們不再約你出門了。你覺得徹底被孤立。",
+    "left": {
+      "label": "打給好朋友",
+      "effect": {
+        "SANITY": 10,
+        "HEALTH": -2
+      }
+    },
+    "right": {
+      "label": "接受孤獨",
+      "effect": {
+        "SANITY": -10
+      },
+      "text_overrides": {
+        "status": "ISOLATED"
+      }
+    },
+    "theme": "support",
+    "rarity": "rare",
+    "required_tags": [
+      "ISOLATED"
+    ]
+  }
+]

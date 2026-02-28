@@ -1,0 +1,90 @@
+[
+  {
+    "id": "infection",
+    "title": "伺機性感染",
+    "trigger": "immune_low",
+    "description": "你的免疫系統被壓制得太低。一場普通的感冒演變成嚴重的肺炎，你被送進加護病房。醫生說你需要暫停所有免疫抑制劑……",
+    "cta_type": "bad_sepsis"
+  },
+  {
+    "id": "flare_storm",
+    "title": "細胞激素風暴",
+    "trigger": "immune_high",
+    "description": "未被控制的免疫系統終於失控。全身性的發炎反應讓你的器官一個接一個衰竭。醫療團隊試著用生物製劑緊急介入，但已經太遲了……",
+    "cta_type": "bad_end"
+  },
+  {
+    "id": "perforation",
+    "title": "腸穿孔",
+    "trigger": "health_low",
+    "description": "你的腸壁已經被潰瘍蠶食得太薄了。某天半夜，一陣劇烈腹痛讓你倒在地上。急診手術雖然救了你的命，但也帶來了永久性的改變……",
+    "cta_type": "bad_perforation"
+  },
+  {
+    "id": "give_up",
+    "title": "放棄治療",
+    "trigger": "sanity_low",
+    "description": "持續的疼痛、社交隔離、和無盡的醫療讓你再也承受不住。你決定放棄所有治療，關上門不再出門……這不是你的錯，但你需要幫助。",
+    "cta_type": "bad_dropout"
+  },
+  {
+    "id": "burnout",
+    "title": "身心俱疲",
+    "trigger": "sanity_high",
+    "description": "你試圖用過度忙碌來逃避疾病的現實。工作、社交、運動——你什麼都做，就是不面對自己的身體。最終，你在辦公室昏倒了。",
+    "cta_type": "bad_dropout"
+  },
+  {
+    "id": "financial_toxicity",
+    "title": "經濟毒性",
+    "trigger": "money_low",
+    "description": "生物製劑、急診費用、請假扣薪……醫療支出終於壓垮了你的經濟。你被迫停用最有效的藥物，疾病隨即反撲。",
+    "cta_type": "bad_bankruptcy"
+  },
+  {
+    "id": "workaholic",
+    "title": "過勞崩潰",
+    "trigger": "money_high",
+    "description": "你拚命賺錢以支付醫療費用，但不規律的生活和壓力讓疾病急速惡化。某天加班到凌晨三點後，你的身體終於罷工了。",
+    "cta_type": "bad_end"
+  },
+  {
+    "id": "deep_remission",
+    "title": "🌟 深度緩解",
+    "trigger": "final",
+    "description": "內視鏡影像顯示：黏膜完全癒合。Dr. Lin 露出了笑容「做得好，這是最好的結果。」你感到前所未有的輕鬆，知道這一年的每一個艱難抉擇都值得了。",
+    "tier": "top",
+    "cta_type": "good"
+  },
+  {
+    "id": "clinical_remission",
+    "title": "臨床緩解",
+    "trigger": "final",
+    "description": "「症狀已經明顯改善了。」Dr. Lin 看著報告說。雖然黏膜還沒有完全癒合，但你的生活品質已經回到可以接受的水準。繼續保持，明年會更好。",
+    "tier": "mid",
+    "cta_type": "good"
+  },
+  {
+    "id": "treatment_failure",
+    "title": "治療失敗",
+    "trigger": "final",
+    "description": "一年過去了，內視鏡結果不理想。Dr. Lin 建議升級治療方案。你的旅程還沒有結束，但這次你學到了寶貴的經驗。",
+    "tier": "low",
+    "cta_type": "bad_end"
+  },
+  {
+    "id": "bad_end",
+    "title": "假象的平靜",
+    "trigger": "final",
+    "description": "報告看似正常，但你知道那是因為過度依賴症狀壓制。「治標不治本」——Dr. Lin 語氣沉重地說。你需要重新面對真正的問題。",
+    "tier": "low",
+    "cta_type": "bad_end"
+  },
+  {
+    "id": "false_confidence",
+    "title": "樂極生悲",
+    "trigger": "health_high",
+    "description": "你覺得自己健康得無敵了，於是停止了所有治療和追蹤。但 IBD 是個狡猾的對手，在你最放鬆的時候，它發動了毀滅性的反擊。",
+    "cta_type": "bad_end"
+  }
+]
