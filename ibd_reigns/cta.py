@@ -39,7 +39,7 @@ def build_cta(ending_type: str) -> CtaContent:
         title="恭喜達成深度緩解",
         actions=[
             CtaAction(label="🏥 IBD 病友會", action_type="link", url="https://www.ibdpg.tw/tw"),
-            CtaAction(label="📖 IBD 衛教手冊", action_type="link", url="http://www.tsibd.org.tw/editor_images/File/TSIBD-201810.pdf"),
+            CtaAction(label="📖 IBD 衛教手冊", action_type="link", url="https://www.tsibd.org.tw/editor_images/File/TSIBD-201810.pdf"),
         ],
         footer="© 台灣炎症性腸道疾病病友協會",
     )
