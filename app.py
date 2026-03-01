@@ -84,43 +84,121 @@ def render_swipe_tutorial() -> None:
     st.markdown(MOBILE_CSS, unsafe_allow_html=True)
     st.markdown("""
     <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;
-                min-height:70vh;text-align:center;padding:1rem;">
+                min-height:75vh;text-align:center;padding:1rem;">
       <div style="font-size:2.5rem;margin-bottom:0.5rem;">👑</div>
       <div style="font-size:1.6rem;font-weight:700;color:#E8D5B7;margin-bottom:0.8rem;
                   font-family:'Noto Serif TC',serif;">腸道王權</div>
-      <div style="font-size:0.9rem;color:#8A7A6A;margin-bottom:2rem;line-height:1.6;">
-        你剛確診 IBD，接下來的每一個選擇<br>都將影響你的健康、免疫、心理與經濟。
+      <div style="font-size:1.1rem;color:#E8D5B7;margin-bottom:2.5rem;line-height:1.6;">
+        你剛診斷出 IBD (發炎性腸道疾病)，<br>請在日常生活中做出對你最好的選擇。
       </div>
-      <div style="display:flex;align-items:center;justify-content:center;gap:1.5rem;
-                  margin-bottom:1.5rem;">
-        <div style="text-align:center;">
-          <div style="font-size:2.2rem;animation:swipeHintLeft 1.5s ease-in-out infinite;">👈</div>
-          <div style="font-size:0.8rem;color:#E57373;font-weight:600;margin-top:0.3rem;">左滑</div>
+
+      <!-- 動態教學區塊 -->
+      <div class="tutorial-anim-container">
+        <!-- 模擬卡片 -->
+        <div class="tutorial-card">
+          <div style="font-size:3rem;">🃏</div>
         </div>
-        <div style="width:80px;height:100px;background:rgba(232,213,183,0.08);
-                    border:2px dashed rgba(232,213,183,0.2);border-radius:12px;
-                    display:flex;align-items:center;justify-content:center;">
-          <div style="font-size:1.8rem;opacity:0.5;">🃏</div>
-        </div>
-        <div style="text-align:center;">
-          <div style="font-size:2.2rem;animation:swipeHintRight 1.5s ease-in-out infinite;">👉</div>
-          <div style="font-size:0.8rem;color:#81C784;font-weight:600;margin-top:0.3rem;">右滑</div>
-        </div>
+        <!-- 模擬手指 -->
+        <div class="tutorial-hand">👆</div>
+        
+        <!-- 文字提示 -->
+        <div class="tutorial-text tutorial-text-left">拒絕 👈</div>
+        <div class="tutorial-text tutorial-text-right">👉 接受</div>
       </div>
-      <div style="font-size:0.78rem;color:#8A7A6A;line-height:1.8;margin-bottom:1.5rem;">
-        ← 向左滑動選擇左邊選項<br>
-        → 向右滑動選擇右邊選項<br>
-        也可以使用下方按鈕操作
+
+      <div style="font-size:1rem;color:#8A7A6A;line-height:1.8;margin-top:2.5rem;margin-bottom:1.5rem;background:rgba(232,213,183,0.05);padding:1rem;border-radius:12px;border:1px solid rgba(232,213,183,0.1);">
+        <strong style="color:#E8D5B7;font-size:1.1rem;">操作說明</strong><br>
+        1. 按住畫面的卡片，<strong>往左</strong>或<strong>往右</strong>滑動<br>
+        2. 或者，直接點擊下方的<strong>紅色 / 綠色按鈕</strong>
       </div>
     </div>
+    
     <style>
-      @keyframes swipeHintLeft {
-        0%, 100% { transform: translateX(0); }
-        50% { transform: translateX(-12px); }
+      .tutorial-anim-container {
+        position: relative;
+        width: 250px;
+        height: 200px;
+        margin: 0 auto;
+        perspective: 1000px;
       }
-      @keyframes swipeHintRight {
-        0%, 100% { transform: translateX(0); }
-        50% { transform: translateX(12px); }
+      .tutorial-card {
+        position: absolute;
+        top: 20px;
+        left: 75px;
+        width: 100px;
+        height: 140px;
+        background: white;
+        border-radius: 12px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+        z-index: 2;
+        animation: swipeCycle 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+        transform-origin: bottom center;
+      }
+      .tutorial-hand {
+        position: absolute;
+        top: 80px;
+        left: 110px;
+        font-size: 3rem;
+        z-index: 3;
+        animation: handCycle 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+        filter: drop-shadow(0 4px 4px rgba(0,0,0,0.5));
+      }
+      .tutorial-text {
+        position: absolute;
+        top: 80px;
+        font-size: 1.2rem;
+        font-weight: 700;
+        opacity: 0;
+        z-index: 1;
+      }
+      .tutorial-text-left {
+        left: 0px;
+        color: #E57373;
+        animation: textLeftCycle 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .tutorial-text-right {
+        right: 0px;
+        color: #81C784;
+        animation: textRightCycle 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
+      }
+
+      /* 重複 4 秒的動畫週期：0-2秒右滑，2-4秒左滑 */
+      @keyframes handCycle {
+        0%, 15% { transform: translate(0, 0) scale(1); } /* 停在中間 */
+        15.1% { transform: translate(0, 0) scale(0.9); } /* 點下 */
+        35% { transform: translate(60px, 0) scale(0.9); } /* 往右拖 */
+        40% { transform: translate(60px, 0) scale(1); opacity: 1; } /* 放開 */
+        45%, 50% { transform: translate(60px, 0) scale(1); opacity: 0; } /* 消失 */
+        
+        50.1%, 65% { transform: translate(0, 0) scale(1); opacity: 1; } /* 回到中間出現 */
+        65.1% { transform: translate(0, 0) scale(0.9); } /* 點下 */
+        85% { transform: translate(-60px, 0) scale(0.9); } /* 往左拖 */
+        90% { transform: translate(-60px, 0) scale(1); opacity: 1; } /* 放開 */
+        95%, 100% { transform: translate(-60px, 0) scale(1); opacity: 0; } /* 消失 */
+      }
+      
+      @keyframes swipeCycle {
+        0%, 15% { transform: translate(0, 0) rotate(0deg); }
+        35% { transform: translate(60px, 0) rotate(10deg); }
+        40%, 50% { transform: translate(0, 0) rotate(0deg); }
+        
+        50.1%, 65% { transform: translate(0, 0) rotate(0deg); }
+        85% { transform: translate(-60px, 0) rotate(-10deg); }
+        90%, 100% { transform: translate(0, 0) rotate(0deg); }
+      }
+
+      @keyframes textRightCycle {
+        0%, 20% { opacity: 0; transform: translateX(-10px); }
+        35%, 45% { opacity: 1; transform: translateX(0); }
+        50%, 100% { opacity: 0; }
+      }
+      @keyframes textLeftCycle {
+        0%, 70% { opacity: 0; transform: translateX(10px); }
+        85%, 95% { opacity: 1; transform: translateX(0); }
+        100% { opacity: 0; }
       }
     </style>
     """, unsafe_allow_html=True)
@@ -322,7 +400,7 @@ def render_autopsy_report(state) -> None:
 
     st.markdown(safe_str(f"""
     <div class="gutreigns-edu" style="border-left-color:#C0392B; background:rgba(192,57,43,0.04);">
-      <div class="gutreigns-edu-title" style="color:#C0392B">🔍 死因分析報告</div>
+      <div class="gutreigns-edu-title" style="color:#C0392B">🔍 惡化原因分析</div>
       <div style="margin:0.5rem 0">
         <div style="font-size:1.1rem;font-weight:700;margin-bottom:0.3rem">{fatal_label}</div>
       </div>
@@ -863,7 +941,7 @@ def main() -> None:
 
     left = False
     right = False
-    st.markdown("<div style='margin-top:0.5rem;'></div>", unsafe_allow_html=True)
+    st.markdown("<div style='margin-top:1.5rem;text-align:center;font-size:0.9rem;color:#8A7A6A;margin-bottom:0.5rem;'>不用滑動，點按鈕也可以👇</div>", unsafe_allow_html=True)
     col_l, col_r = st.columns(2)
     with col_l:
         left = st.button(
@@ -881,6 +959,19 @@ def main() -> None:
             key="right",
             help=locks.get("right"),
         )
+    
+    # Custom CSS to enlarge the specific buttons based on their keys
+    st.markdown("""
+    <style>
+      button[data-testid="baseButton-secondary"] {
+        height: 60px !important;
+        font-size: 1.1rem !important;
+        border-radius: 12px !important;
+        border-width: 2px !important;
+        font-weight: bold !important;
+      }
+    </style>
+    """, unsafe_allow_html=True)
 
     analytics.emit(
         "card_shown",
