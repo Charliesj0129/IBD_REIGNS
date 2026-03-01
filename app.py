@@ -1004,8 +1004,12 @@ def main() -> None:
     )
 
     # Convert component result to logic
-    swipe_left = swipe_result == "left"
-    swipe_right = swipe_result == "right"
+    swipe_left = False
+    swipe_right = False
+    if isinstance(swipe_result, dict) and swipe_result.get("card_id") == card.id:
+        swipe_dir = swipe_result.get("direction")
+        swipe_left = swipe_dir == "left"
+        swipe_right = swipe_dir == "right"
 
     if left or right or swipe_left or swipe_right:
         swipe_choice = 'left' if (left or swipe_left) else 'right'

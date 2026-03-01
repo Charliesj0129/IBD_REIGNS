@@ -33,7 +33,7 @@ def swipe_card_component(
 ):
     """Create a new instance of "swipe_card_component"."""
     if key is None:
-        key = f"swipe_card_{card_id}_{week}"
+        key = "main_swipe_deck"
 
     component_value = _component_func(
         card_id=card_id,

@@ -21,8 +21,8 @@ def build_cta(ending_type: str) -> CtaContent:
         return CtaContent(
             title="別讓這成為現實",
             actions=[
-                CtaAction(label="🏥 IBD 病友會", action_type="link", url="https://www.ibdpg.tw/tw"),
-                CtaAction(label="📖 IBD 衛教手冊", action_type="link", url="http://www.tsibd.org.tw/editor_images/File/TSIBD-201810.pdf"),
+                CtaAction(label="下載衛教指引", action_type="link", url="https://www.tsibd.org.tw/editor_images/File/TSIBD-201810.pdf"),
+                CtaAction(label="尋找專科醫師", action_type="link", url="https://www.tsibd.org.tw/ibd_dr"),
             ],
             footer="© 台灣炎症性腸道疾病病友協會",
         )
@@ -30,16 +30,16 @@ def build_cta(ending_type: str) -> CtaContent:
         return CtaContent(
             title="你並不孤單",
             actions=[
-                CtaAction(label="🏥 IBD 病友會", action_type="link", url="https://www.ibdpg.tw/tw"),
-                CtaAction(label="📖 IBD 衛教手冊", action_type="link", url="http://www.tsibd.org.tw/editor_images/File/TSIBD-201810.pdf"),
+                CtaAction(label="加入病友社群", action_type="link", url="https://www.facebook.com/TaiwanIBD/"),
+                CtaAction(label="社福資源總覽", action_type="link", url="https://www.tsibd.org.tw/patients/"),
             ],
             footer="© 台灣炎症性腸道疾病病友協會",
         )
     return CtaContent(
         title="恭喜達成深度緩解",
         actions=[
-            CtaAction(label="🏥 IBD 病友會", action_type="link", url="https://www.ibdpg.tw/tw"),
-            CtaAction(label="📖 IBD 衛教手冊", action_type="link", url="https://www.tsibd.org.tw/editor_images/File/TSIBD-201810.pdf"),
+            CtaAction(label="加入病友社群", action_type="link", url="https://www.facebook.com/TaiwanIBD/"),
+            CtaAction(label="社福資源總覽", action_type="link", url="https://www.tsibd.org.tw/patients/"),
         ],
         footer="© 台灣炎症性腸道疾病病友協會",
     )

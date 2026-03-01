@@ -602,10 +602,11 @@
         card.style.transition = "transform 0.25s ease-in";
         card.style.transform = `translate(${x}px, 50px) rotate(${rot}deg)`;
 
+        const savedCardId = currentArgs.card_id;
         currentArgs = null; // Block subsequent drags
 
         setTimeout(() => {
-          setStreamlitComponentValue(direction);
+          setStreamlitComponentValue({ direction: direction, card_id: savedCardId });
         }, 220); // slightly before transition ends for instant feel
       }
 
