@@ -903,7 +903,27 @@ def main() -> None:
         character_line = f"{name} {role}".strip()
 
     locks = deck.options_locked(state, card)
-    silhouette = render_icon("assets/characters/silhouette.svg")
+    # --- Resolve Dynamic SVGs ---
+    def get_character_svg(role: str, name: str) -> str:
+        role_map = {
+            "doctor.svg": ["醫師", "主治", "doctor"],
+            "nurse.svg": ["護理", "護士", "病房", "nurse"],
+            "boss.svg": ["主管", "經理", "老闆", "boss", "manager"],
+            "colleague.svg": ["同事", "上班", "colleague"],
+            "family.svg": ["家人", "親戚", "媽媽", "爸爸", "梅嬸", "family"],
+            "friend.svg": ["朋友", "病友", "論壇", "friend", "夥伴", "傳言"],
+            "inner_voice.svg": ["內心", "自我", "疲憊", "衝動", "voice"],
+            "treatment.svg": ["藥師", "照護團隊"],
+            "system.svg": ["急診", "突發", "系統"]
+        }
+        search_text = f"{role} {name}".lower()
+        for svg, keywords in role_map.items():
+            if any(k in search_text for k in keywords):
+                return svg
+        return "default.svg"
+
+    svg_name = get_character_svg(card.character_role or "", card.character_name or "")
+    silhouette = render_icon(f"assets/characters/{svg_name}")
     
     # Render Swipe Component (HTML Bridge)
     swipe_result = swipe_card_component(
