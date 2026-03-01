@@ -156,12 +156,12 @@ def render_swipe_tutorial() -> None:
       }
       .tutorial-text-left {
         left: 0px;
-        color: #E57373;
+        color: var(--color-danger);
         animation: textLeftCycle 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
       }
       .tutorial-text-right {
         right: 0px;
-        color: #81C784;
+        color: var(--color-success);
         animation: textRightCycle 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
       }
 

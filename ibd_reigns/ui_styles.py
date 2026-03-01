@@ -689,5 +689,15 @@ header {visibility: hidden !important;}
   .gutreigns-btn > button { width: 100%; min-height: 50px; font-size: 1rem; }
   .gutreigns-ending-title { font-size: 1.2rem; }
 }
+
+/* ============================================
+   A11y: REDUCED MOTION
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+}
 </style>
 """

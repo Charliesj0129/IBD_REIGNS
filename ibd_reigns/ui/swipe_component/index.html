@@ -13,6 +13,8 @@
         --text-color: #e8d5b7;
         --text-muted: #8a7a6a;
         --accent: #d4a574;
+        --color-success: #81C784;
+        --color-danger: #E57373;
         --glow-spring: rgba(129, 199, 132, 0.2);
         --glow-summer: rgba(255, 183, 77, 0.2);
         --glow-fall: rgba(188, 143, 107, 0.2);
@@ -192,14 +194,14 @@
       #edge-left {
         transform-origin: left center;
         text-align: left;
-        color: #E57373;
+        color: var(--color-danger);
         background: rgba(229, 115, 115, 0.1);
         backdrop-filter: blur(4px);
       }
       #edge-right {
         transform-origin: right center;
         text-align: right;
-        color: #81C784;
+        color: var(--color-success);
         background: rgba(129, 199, 132, 0.1);
         backdrop-filter: blur(4px);
       }
@@ -294,6 +296,13 @@
         margin-top: 24px;
         letter-spacing: 0.06em;
         opacity: 0.6;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        * {
+          animation: none !important;
+          transition-duration: 0.01ms !important;
+        }
       }
     </style>
   </head>
