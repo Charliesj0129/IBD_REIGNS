@@ -7,13 +7,13 @@ import streamlit.components.v1 as components
 _RELEASE = True
 
 parent_dir = os.path.dirname(os.path.abspath(__file__))
-build_dir = os.path.join(parent_dir, "swipe_component")
+build_dir = os.path.join(parent_dir, "swipe_component_v2")
 
 if _RELEASE:
-    _component_func = components.declare_component("swipe_card_component", path=build_dir)
+    _component_func = components.declare_component("swipe_card_component_v2", path=build_dir)
 else:
     _component_func = components.declare_component(
-        "swipe_card_component",
+        "swipe_card_component_v2",
         url="http://localhost:3001",
     )
 

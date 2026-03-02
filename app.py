@@ -668,12 +668,9 @@ def render_analytics_dashboard() -> None:
                   </div>
                   <div style="min-width:60px;font-size:0.75rem;color:#bbb;">{stage['count']} ({stage['percent']}%)</div>
                 </div>"""
-            st.markdown(f"""
-            <div style="background:rgba(0,0,0,0.03);border:1px solid rgba(0,0,0,0.06);
-                        border-radius:12px;padding:1rem;margin-bottom:1rem;">
-              {funnel_html}
-            </div>
-            """, unsafe_allow_html=True)
+            st.markdown(f"""<div style="background:rgba(0,0,0,0.03);border:1px solid rgba(0,0,0,0.06);border-radius:12px;padding:1rem;margin-bottom:1rem;">
+{funnel_html}
+</div>""", unsafe_allow_html=True)
         else:
             st.caption("尚無足夠行為漏斗資料")
 
@@ -700,15 +697,12 @@ def render_analytics_dashboard() -> None:
                   <div style="min-width:90px;font-size:0.7rem;color:#888;">← {left_pct}% / {right_pct}% →</div>
                   <div style="min-width:30px;font-size:0.7rem;color:#aaa;">n={cs['total_chosen']}</div>
                 </div>"""
-            st.markdown(f"""
-            <div style="background:rgba(0,0,0,0.02);border:1px solid rgba(0,0,0,0.06);
-                        border-radius:12px;padding:0.8rem;">
-              <div style="display:flex;justify-content:space-between;font-size:0.7rem;color:#bbb;padding:0 0.6rem 0.4rem;">
-                <span>卡牌 ID</span><span>← 左 / 右 →</span>
-              </div>
-              {cards_html}
-            </div>
-            """, unsafe_allow_html=True)
+            st.markdown(f"""<div style="background:rgba(0,0,0,0.02);border:1px solid rgba(0,0,0,0.06);border-radius:12px;padding:0.8rem;">
+<div style="display:flex;justify-content:space-between;font-size:0.7rem;color:#bbb;padding:0 0.6rem 0.4rem;">
+<span>卡牌 ID</span><span>← 左 / 右 →</span>
+</div>
+{cards_html}
+</div>""", unsafe_allow_html=True)
         else:
             st.caption("尚無足夠決策資料（需至少 5 次出現）")
 
@@ -729,12 +723,9 @@ def render_analytics_dashboard() -> None:
                       <span style="color:#F39C12;font-weight:700;">Δ{diff_pct}%</span>
                       <span style="color:#888;">{dominant_label}</span>
                     </div>"""
-                st.markdown(f"""
-                <div style="background:rgba(243,156,18,0.05);border:1px solid rgba(243,156,18,0.2);
-                            border-radius:12px;padding:0.8rem;">
-                  {crit_html}
-                </div>
-                """, unsafe_allow_html=True)
+                st.markdown(f"""<div style="background:rgba(243,156,18,0.05);border:1px solid rgba(243,156,18,0.2);border-radius:12px;padding:0.8rem;">
+{crit_html}
+</div>""", unsafe_allow_html=True)
 
         # --- Survival Rate by Choice ---
         survival = compute_survival_by_choice(events, apply_dp=True)
