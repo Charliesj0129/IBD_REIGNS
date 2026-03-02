@@ -502,23 +502,30 @@
           { key: "MONEY", icon: "💰" },
         ];
 
-        statRow.innerHTML = stats
-          .map((s) => {
-            const val = args.current_stats[s.key] || 50;
-            const pct = Math.max(0, Math.min(100, val));
-            return `
-          <div class="gutreigns-stat-pillar" id="pillar-${s.key}">
-            <div class="stat-indicator" id="indicator-${s.key}"></div>
-            <div class="gutreigns-stat-icon-wrapper">
-              <div class="stat-icon-bg">${s.icon}</div>
-              <div class="stat-icon-fill" style="height:${pct}%;">
-                <div class="stat-icon-fill-content">${s.icon}</div>
+        if (statRow.children.length === 0) {
+          statRow.innerHTML = stats
+            .map((s) => `
+              <div class="gutreigns-stat-pillar" id="pillar-${s.key}">
+                <div class="stat-indicator" id="indicator-${s.key}"></div>
+                <div class="gutreigns-stat-icon-wrapper">
+                  <div class="stat-icon-bg">${s.icon}</div>
+                  <div class="stat-icon-fill" id="fill-${s.key}" style="height:50%; transition: height 0.6s ease-out;">
+                    <div class="stat-icon-fill-content">${s.icon}</div>
+                  </div>
+                </div>
               </div>
-            </div>
-          </div>
-        `;
-          })
-          .join("");
+            `).join("");
+        }
+
+        // Smoothly update existing stats
+        stats.forEach((s) => {
+          const val = args.current_stats[s.key] || 50;
+          const pct = Math.max(0, Math.min(100, val));
+          const fill = document.getElementById(`fill-${s.key}`);
+          if (fill) {
+            fill.style.height = `${pct}%`;
+          }
+        });
 
         // Ambient season glow (glassmorphism)
         const season = seasonConfig[args.season] || seasonConfig.spring;
@@ -602,11 +609,11 @@
         card.style.transition = "transform 0.25s ease-in";
         card.style.transform = `translate(${x}px, 50px) rotate(${rot}deg)`;
 
-        const savedCardId = currentArgs.card_id;
+        const savedWeek = currentArgs.week;
         currentArgs = null; // Block subsequent drags
 
         setTimeout(() => {
-          setStreamlitComponentValue({ direction: direction, card_id: savedCardId });
+          setStreamlitComponentValue({ direction: direction, week: savedWeek });
         }, 220); // slightly before transition ends for instant feel
       }
 

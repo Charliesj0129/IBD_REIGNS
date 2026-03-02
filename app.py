@@ -1006,7 +1006,7 @@ def main() -> None:
     # Convert component result to logic
     swipe_left = False
     swipe_right = False
-    if isinstance(swipe_result, dict) and swipe_result.get("card_id") == card.id:
+    if isinstance(swipe_result, dict) and swipe_result.get("week") == state.week:
         swipe_dir = swipe_result.get("direction")
         swipe_left = swipe_dir == "left"
         swipe_right = swipe_dir == "right"
