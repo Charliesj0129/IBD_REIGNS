@@ -17,7 +17,7 @@ echo -e "${BLUE}=================================================${NC}"
 echo ""
 
 # 1. 檢查並啟動背後的 Streamlit
-APP_PORT=8501
+APP_PORT=8503
 if ! lsof -t -i:$APP_PORT > /dev/null; then
     echo -e "${YELLOW}[1/3] 正在背景啟動 IBD REIGNS 遊戲伺服器...${NC}"
     uv run streamlit run app.py --server.port=$APP_PORT --server.address=0.0.0.0 --server.headless=true --browser.gatherUsageStats=false > /dev/null 2>&1 &

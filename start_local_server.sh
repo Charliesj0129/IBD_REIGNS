@@ -39,15 +39,15 @@ fi
 echo -e "${YELLOW}[網路設定] 準備啟動伺服器...${NC}"
 echo -e "伺服器將綁定於所有網卡 (0.0.0.0)。同一個 WiFi (區網) 內的設備皆可連線。"
 echo ""
-echo -e "${BLUE}👉 【本機遊玩】 請在瀏覽器開啟: ${NC}http://localhost:8501"
+echo -e "${BLUE}👉 【本機遊玩】 請在瀏覽器開啟: ${NC}http://localhost:8503"
 if [ "$LOCAL_IP" != "您的區域網路 IP" ] && [ -n "$LOCAL_IP" ]; then
-    echo -e "${GREEN}📱 【手機/平板遊玩】 請在設備瀏覽器開啟: ${NC}http://$LOCAL_IP:8501"
+    echo -e "${GREEN}📱 【手機/平板遊玩】 請在設備瀏覽器開啟: ${NC}http://$LOCAL_IP:8503"
 else
-    echo -e "${GREEN}📱 【手機/平板遊玩】 請確認本機 IP，然後在設備瀏覽器開啟: http://<你的IP>:8501${NC}"
+    echo -e "${GREEN}📱 【手機/平板遊玩】 請確認本機 IP，然後在設備瀏覽器開啟: http://<你的IP>:8503${NC}"
 fi
 echo ""
-echo -e "${YELLOW}📝 備註：若同網段的其他設備無法連線，請確認本機防火牆是否已開放 8501 Port (TCP)。${NC}"
-echo "    - Ubuntu/Linux 防火牆開放: sudo ufw allow 8501/tcp"
+echo -e "${YELLOW}📝 備註：若同網段的其他設備無法連線，請確認本機防火牆是否已開放 8503 Port (TCP)。${NC}"
+echo "    - Ubuntu/Linux 防火牆開放: sudo ufw allow 8503/tcp"
 echo "    - Windows: 請至控制台 > Windows Defender 防火牆 > 進階設定 中新增「輸入規則」"
 echo ""
 echo -e "${BLUE}按 Ctrl+C 可以隨時關閉伺服器。${NC}"
@@ -55,4 +55,4 @@ echo "--------------------------------------------------------"
 
 # 3. Launch Streamlit binding to 0.0.0.0
 # --server.headless=true is optional, but common for hosted deployments
-uv run streamlit run app.py --server.port=8501 --server.address=0.0.0.0
+uv run streamlit run app.py --server.port=8503 --server.address=0.0.0.0
