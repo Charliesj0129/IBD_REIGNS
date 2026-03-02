@@ -3,19 +3,17 @@
 > 重要：在處理本專案的任何任務時，請優先使用基於檢索的推理（retrieval-led reasoning），而非僅依賴預訓練的推理。
 
 ## 專案上下文 (Project Context)
-
-|name:IBD_REIGNS|tech:Python|framework:Streamlit|
+|name:IBD_REIGNS|tech:Python|framework:Flask|
 
 ## 規則索引 (Rule Index, .agent/)
+|skills:{ui-design.skill.md}|
 
 ## 開發指南 (Instructions)
 
 開發本專案時請注意：
-
 1. 實作功能前，請先閱讀 `.agent/skills/` 中相關的技能檔案
 2. 執行特定任務時，請遵循 `.agent/workflows/` 中的工作流指示
 3. 請查看專案根目錄的 `user_rules.md` 以了解專案專屬的開發規範
 
 ---
-
-_由 Pixiu Agent 自動生成_
+*由 Pixiu Agent 自動生成*

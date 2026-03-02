@@ -22,7 +22,7 @@ def build_cta(ending_type: str) -> CtaContent:
             title="別讓這成為現實",
             actions=[
                 CtaAction(label="下載衛教指引", action_type="link", url="https://www.tsibd.org.tw/editor_images/File/TSIBD-201810.pdf"),
-                CtaAction(label="尋找專科醫師", action_type="link", url="https://www.tsibd.org.tw/ibd_dr"),
+                CtaAction(label="學會衛教專區", action_type="link", url="https://www.tsibd.org.tw/patients/"),
             ],
             footer="© 台灣炎症性腸道疾病病友協會",
         )

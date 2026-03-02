@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-01T14:40:33.106Z",
+  "generatedAt": "2026-03-01T14:57:49.502Z",
   "technology": {
     "language": "Python",
     "framework": "unknown"
@@ -11,7 +11,12 @@
   },
   "pixiu": {
     "active_rules": [],
-    "installed_skills": [],
+    "installed_skills": [
+      {
+        "filename": "ui-design.skill.md",
+        "size": 6178
+      }
+    ],
     "available_workflows": []
   }
 }

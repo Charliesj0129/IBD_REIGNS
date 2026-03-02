@@ -1,2 +1,9 @@
 version: 1
-skills: []
+skills:
+  - id: ui-design
+    version: 0.0.0
+    risk: medium
+    source: repo
+    base_root: /home/charlie/IBD_REIGNS
+    base_path: .agent/skills
+    spec: ui-design.skill.md
