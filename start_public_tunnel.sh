@@ -16,21 +16,26 @@ echo -e "${GREEN}   腸道王權 (IBD REIGNS) - 全球公開網址生成器    $
 echo -e "${BLUE}=================================================${NC}"
 echo ""
 
-# 1. 檢查並啟動背後的 Streamlit
-APP_PORT=8503
-if lsof -t -i:$APP_PORT > /dev/null; then
-    echo -e "${YELLOW}發現舊的伺服器正在 Port $APP_PORT 運行，正在自動關閉以載入最新程式碼...${NC}"
-    kill -9 $(lsof -t -i:$APP_PORT) > /dev/null 2>&1 || true
-    sleep 2
+APP_PORT=${1:-8503}  # 預設為 本地單機測試 8503，若想穿透 Docker 叢集請執行 ./start_public_tunnel.sh 80
+
+if [ "$APP_PORT" == "80" ]; then
+    echo -e "${YELLOW}[1/3] 正在使用 Port 80 (Docker 叢集模式) 進行穿透，跳過本地 Streamlit 啟動...${NC}"
+else
+    # 針對本機單機測試 (Port 8503)
+    if lsof -t -i:$APP_PORT > /dev/null; then
+        echo -e "${YELLOW}發現舊的伺服器正在 Port $APP_PORT 運行，正在自動關閉以載入最新程式碼...${NC}"
+        kill -9 $(lsof -t -i:$APP_PORT) > /dev/null 2>&1 || true
+        sleep 2
+    fi
+
+    echo -e "${YELLOW}[1/3] 正在背景啟動 IBD REIGNS 單機遊戲伺服器 (Port $APP_PORT)...${NC}"
+    uv run streamlit run app.py --server.port=$APP_PORT --server.address=0.0.0.0 --server.headless=true --browser.gatherUsageStats=false > /dev/null 2>&1 &
+    STREAMLIT_PID=$!
+    sleep 3
+
+    # 設定 Trap，當腳本退出時(例如 Ctrl+C)，順便自動關閉背景的 Streamlit
+    trap "kill -9 $STREAMLIT_PID > /dev/null 2>&1 || true" EXIT
 fi
-
-echo -e "${YELLOW}[1/3] 正在背景啟動 IBD REIGNS 遊戲伺服器...${NC}"
-uv run streamlit run app.py --server.port=$APP_PORT --server.address=0.0.0.0 --server.headless=true --browser.gatherUsageStats=false > /dev/null 2>&1 &
-STREAMLIT_PID=$!
-sleep 3
-
-# 設定 Trap，當腳本退出時(例如 Ctrl+C)，順便自動關閉背景的 Streamlit
-trap "kill -9 $STREAMLIT_PID > /dev/null 2>&1 || true" EXIT
 
 # 2. 啟動對外 Tunnel
 # 2026-02-22 實測：Cloudflare Quick Tunnel 可正常互動；某些環境下 localtunnel 會讓 Streamlit 互動元件卡成 skeleton。
