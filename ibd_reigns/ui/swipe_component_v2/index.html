@@ -492,69 +492,74 @@
       };
 
       function render(args) {
-        currentArgs = args;
+        try {
+          currentArgs = args;
 
-        // Stats
-        const stats = [
-          { key: "HEALTH", icon: "❤️" },
-          { key: "IMMUNE", icon: "🛡️" },
-          { key: "SANITY", icon: "🧠" },
-          { key: "MONEY", icon: "💰" },
-        ];
+          // Stats
+          const stats = [
+            { key: "HEALTH", icon: "❤️" },
+            { key: "IMMUNE", icon: "🛡️" },
+            { key: "SANITY", icon: "🧠" },
+            { key: "MONEY", icon: "💰" },
+          ];
 
-        if (statRow.children.length === 0) {
-          statRow.innerHTML = stats
-            .map((s) => `
-              <div class="gutreigns-stat-pillar" id="pillar-${s.key}">
-                <div class="stat-indicator" id="indicator-${s.key}"></div>
-                <div class="gutreigns-stat-icon-wrapper">
-                  <div class="stat-icon-bg">${s.icon}</div>
-                  <div class="stat-icon-fill" id="fill-${s.key}" style="height:50%; transition: height 0.6s ease-out;">
-                    <div class="stat-icon-fill-content">${s.icon}</div>
+          if (statRow.children.length === 0) {
+            statRow.innerHTML = stats
+              .map((s) => `
+                <div class="gutreigns-stat-pillar" id="pillar-${s.key}">
+                  <div class="stat-indicator" id="indicator-${s.key}"></div>
+                  <div class="gutreigns-stat-icon-wrapper">
+                    <div class="stat-icon-bg">${s.icon}</div>
+                    <div class="stat-icon-fill" id="fill-${s.key}" style="height:50%; transition: height 0.6s ease-out;">
+                      <div class="stat-icon-fill-content">${s.icon}</div>
+                    </div>
                   </div>
                 </div>
-              </div>
-            `).join("");
-        }
-
-        // Smoothly update existing stats
-        stats.forEach((s) => {
-          const val = args.current_stats[s.key] || 50;
-          const pct = Math.max(0, Math.min(100, val));
-          const fill = document.getElementById(`fill-${s.key}`);
-          if (fill) {
-            fill.style.height = `${pct}%`;
+              `).join("");
           }
-        });
 
-        // Ambient season glow (glassmorphism)
-        const season = seasonConfig[args.season] || seasonConfig.spring;
-        const orb1 = document.getElementById('glow-orb-1');
-        const orb2 = document.getElementById('glow-orb-2');
-        orb1.style.background = season.glow1;
-        orb2.style.background = season.glow2;
-        orb1.classList.add('active');
-        orb2.classList.add('active');
+          // Smoothly update existing stats
+          stats.forEach((s) => {
+            const val = args.current_stats[s.key] || 50;
+            const pct = Math.max(0, Math.min(100, val));
+            const fill = document.getElementById(`fill-${s.key}`);
+            if (fill) {
+              fill.style.height = `${pct}%`;
+            }
+          });
 
-        // Content (Text outside card)
-        document.getElementById("card-character").innerText =
-          args.character_line || "";
-        document.getElementById("card-text").innerText = args.text || "";
-        document.getElementById("card-silhouette").innerHTML =
-          args.silhouette_svg || "";
+          // Ambient season glow (glassmorphism)
+          const season = seasonConfig[args.season] || seasonConfig.spring;
+          const orb1 = document.getElementById('glow-orb-1');
+          const orb2 = document.getElementById('glow-orb-2');
+          orb1.style.background = season.glow1;
+          orb2.style.background = season.glow2;
+          orb1.classList.add('active');
+          orb2.classList.add('active');
 
-        edgeLeft.innerText = args.left_label || "";
-        edgeRight.innerText = args.right_label || "";
+          // Content (Text outside card)
+          document.getElementById("card-character").innerText =
+            args.character_line || "";
+          document.getElementById("card-text").innerText = args.text || "";
+          document.getElementById("card-silhouette").innerHTML =
+            args.silhouette_svg || "";
 
-        const weekText = args.week ? `生存週數: ${args.week}` : "";
-        document.getElementById("swipe-hint").innerText = weekText;
+          edgeLeft.innerText = args.left_label || "";
+          edgeRight.innerText = args.right_label || "";
 
-        // Reset and trigger appear bounce
-        resetCard(true);
+          const weekText = args.week ? `生存週數: ${args.week}` : "";
+          document.getElementById("swipe-hint").innerText = weekText;
 
-        sendMessageToStreamlitClient("streamlit:setFrameHeight", {
-          height: 600,
-        });
+          // Reset and trigger appear bounce
+          resetCard(true);
+
+          sendMessageToStreamlitClient("streamlit:setFrameHeight", {
+            height: 600,
+          });
+        } catch (err) {
+          document.getElementById("card-text").innerHTML = "JS Error: " + err.message + "<br/>" + err.stack;
+          sendMessageToStreamlitClient("streamlit:setFrameHeight", { height: 600 });
+        }
       }
 
       function resetCard(appearAnim = false) {
