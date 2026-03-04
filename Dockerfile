@@ -8,8 +8,10 @@ ENV PYTHONUNBUFFERED=1
 # Set the working directory in the container
 WORKDIR /app
 
-# Install uv
-RUN pip install --no-cache-dir uv
+# Install uv and curl for healthcheck
+RUN apt-get update && apt-get install -y --no-install-recommends curl \
+    && rm -rf /var/lib/apt/lists/* \
+    && pip install --no-cache-dir uv
 
 # Copy the dependency definitions
 COPY pyproject.toml uv.lock ./
