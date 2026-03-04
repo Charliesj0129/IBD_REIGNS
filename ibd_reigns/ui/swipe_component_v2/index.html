@@ -335,148 +335,157 @@
     <div class="swipe-hint" id="swipe-hint"></div>
 
     <script>
-      // --- Streamlit Interface ---
-      function sendMessageToStreamlitClient(type, data) {
-        window.parent.postMessage({ isStreamlitMessage: true, type: type, ...data }, "*");
-      }
+      try {
+        // --- Streamlit Interface ---
+        function sendMessageToStreamlitClient(type, data) {
+          window.parent.postMessage({ isStreamlitMessage: true, type: type, ...data }, "*");
+        }
 
-      function onDataFromPython(event) {
-        if (event.data.type !== "streamlit:render") return;
-        render(event.data.args);
-      }
+        function onDataFromPython(event) {
+          if (!event.data || event.data.type !== "streamlit:render") return;
+          render(event.data.args);
+        }
 
-      function setStreamlitComponentValue(val) {
-        sendMessageToStreamlitClient("streamlit:setComponentValue", {
-          value: val,
-          dataType: "json",
+        function setStreamlitComponentValue(val) {
+          sendMessageToStreamlitClient("streamlit:setComponentValue", {
+            value: val,
+            dataType: "json",
+          });
+        }
+
+        window.addEventListener("message", onDataFromPython);
+        sendMessageToStreamlitClient("streamlit:componentReady", {
+          apiVersion: 1,
         });
-      }
 
-      window.addEventListener("message", onDataFromPython);
-      sendMessageToStreamlitClient("streamlit:componentReady", {
-        apiVersion: 1,
-      });
-
-      // --- Sound FX Engine (Physical Card Sounds) ---
-      let audioCtx = null;
-      function ensureAudioCtx() {
-        if (!audioCtx) {
-          audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+        // --- Sound FX Engine (Physical Card Sounds) ---
+        let audioCtx = null;
+        function ensureAudioCtx() {
+          if (!audioCtx) {
+            audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+          }
+          if (audioCtx.state === 'suspended') audioCtx.resume();
+          return audioCtx;
         }
-        if (audioCtx.state === 'suspended') audioCtx.resume();
-        return audioCtx;
-      }
 
-      // 紙牌摩擦音 (Card paper friction: filtered noise burst)
-      function playSfxCardSlide() {
-        const ctx = ensureAudioCtx();
-        const duration = 0.12;
-        const bufferSize = ctx.sampleRate * duration;
-        const buf = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
-        const data = buf.getChannelData(0);
-        for (let i = 0; i < bufferSize; i++) {
-          // Shaped noise: quick attack, fast decay
-          const env = Math.exp(-i / (bufferSize * 0.15));
-          data[i] = (Math.random() * 2 - 1) * env * 0.3;
+        // 紙牌摩擦音 (Card paper friction: filtered noise burst)
+        function playSfxCardSlide() {
+          try {
+            const ctx = ensureAudioCtx();
+            const duration = 0.12;
+            const bufferSize = ctx.sampleRate * duration;
+            const buf = ctx.createBuffer(1, bufferSize, ctx.sampleRate);
+            const data = buf.getChannelData(0);
+            for (let i = 0; i < bufferSize; i++) {
+              // Shaped noise: quick attack, fast decay
+              const env = Math.exp(-i / (bufferSize * 0.15));
+              data[i] = (Math.random() * 2 - 1) * env * 0.3;
+            }
+            const src = ctx.createBufferSource();
+            src.buffer = buf;
+            // Bandpass filter to sound like paper
+            const bp = ctx.createBiquadFilter();
+            bp.type = 'bandpass';
+            bp.frequency.value = 3200;
+            bp.Q.value = 1.5;
+            src.connect(bp);
+            bp.connect(ctx.destination);
+            src.start();
+          } catch(e) {}
         }
-        const src = ctx.createBufferSource();
-        src.buffer = buf;
-        // Bandpass filter to sound like paper
-        const bp = ctx.createBiquadFilter();
-        bp.type = 'bandpass';
-        bp.frequency.value = 3200;
-        bp.Q.value = 1.5;
-        src.connect(bp);
-        bp.connect(ctx.destination);
-        src.start();
-      }
 
-      // 蓋章音 (Stamp thud: sub-bass impact + click layer)
-      function playSfxStamp() {
-        const ctx = ensureAudioCtx();
-        const now = ctx.currentTime;
+        // 蓋章音 (Stamp thud: sub-bass impact + click layer)
+        function playSfxStamp() {
+          try {
+            const ctx = ensureAudioCtx();
+            const now = ctx.currentTime;
 
-        // Layer 1: Sub-bass thud
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(85, now);
-        osc.frequency.exponentialRampToValueAtTime(40, now + 0.15);
-        gain.gain.setValueAtTime(0.5, now);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.start(now);
-        osc.stop(now + 0.22);
+            // Layer 1: Sub-bass thud
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(85, now);
+            osc.frequency.exponentialRampToValueAtTime(40, now + 0.15);
+            gain.gain.setValueAtTime(0.5, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.2);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(now);
+            osc.stop(now + 0.22);
 
-        // Layer 2: High-frequency click transient
-        const clickBuf = ctx.createBuffer(1, ctx.sampleRate * 0.015, ctx.sampleRate);
-        const clickData = clickBuf.getChannelData(0);
-        for (let i = 0; i < clickData.length; i++) {
-          clickData[i] = (Math.random() * 2 - 1) * Math.exp(-i / (clickData.length * 0.08)) * 0.4;
+            // Layer 2: High-frequency click transient
+            const clickBuf = ctx.createBuffer(1, ctx.sampleRate * 0.015, ctx.sampleRate);
+            const clickData = clickBuf.getChannelData(0);
+            for (let i = 0; i < clickData.length; i++) {
+              clickData[i] = (Math.random() * 2 - 1) * Math.exp(-i / (clickData.length * 0.08)) * 0.4;
+            }
+            const clickSrc = ctx.createBufferSource();
+            clickSrc.buffer = clickBuf;
+            const hp = ctx.createBiquadFilter();
+            hp.type = 'highpass';
+            hp.frequency.value = 2000;
+            clickSrc.connect(hp);
+            hp.connect(ctx.destination);
+            clickSrc.start(now);
+
+            // Layer 3: Body resonance
+            const osc2 = ctx.createOscillator();
+            const gain2 = ctx.createGain();
+            osc2.type = 'triangle';
+            osc2.frequency.setValueAtTime(180, now);
+            osc2.frequency.exponentialRampToValueAtTime(60, now + 0.1);
+            gain2.gain.setValueAtTime(0.15, now);
+            gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
+            osc2.connect(gain2);
+            gain2.connect(ctx.destination);
+            osc2.start(now);
+            osc2.stop(now + 0.15);
+          } catch(e) {}
         }
-        const clickSrc = ctx.createBufferSource();
-        clickSrc.buffer = clickBuf;
-        const hp = ctx.createBiquadFilter();
-        hp.type = 'highpass';
-        hp.frequency.value = 2000;
-        clickSrc.connect(hp);
-        hp.connect(ctx.destination);
-        clickSrc.start(now);
 
-        // Layer 3: Body resonance
-        const osc2 = ctx.createOscillator();
-        const gain2 = ctx.createGain();
-        osc2.type = 'triangle';
-        osc2.frequency.setValueAtTime(180, now);
-        osc2.frequency.exponentialRampToValueAtTime(60, now + 0.1);
-        gain2.gain.setValueAtTime(0.15, now);
-        gain2.gain.exponentialRampToValueAtTime(0.001, now + 0.12);
-        osc2.connect(gain2);
-        gain2.connect(ctx.destination);
-        osc2.start(now);
-        osc2.stop(now + 0.15);
-      }
+        // 微點擊音 (Subtle click for grab start)
+        function playSfxClick() {
+          try {
+            const ctx = ensureAudioCtx();
+            const now = ctx.currentTime;
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(1200, now);
+            osc.frequency.exponentialRampToValueAtTime(800, now + 0.03);
+            gain.gain.setValueAtTime(0.15, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(now);
+            osc.stop(now + 0.05);
+          } catch(e) {}
+        }
 
-      // 微點擊音 (Subtle click for grab start)
-      function playSfxClick() {
-        const ctx = ensureAudioCtx();
-        const now = ctx.currentTime;
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(1200, now);
-        osc.frequency.exponentialRampToValueAtTime(800, now + 0.03);
-        gain.gain.setValueAtTime(0.15, now);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.04);
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.start(now);
-        osc.stop(now + 0.05);
-      }
+        // 彈回音 (Snap-back sound for when card resets)
+        function playSfxSnapback() {
+          try {
+            const ctx = ensureAudioCtx();
+            const now = ctx.currentTime;
+            const osc = ctx.createOscillator();
+            const gain = ctx.createGain();
+            osc.type = 'sine';
+            osc.frequency.setValueAtTime(400, now);
+            osc.frequency.exponentialRampToValueAtTime(250, now + 0.06);
+            gain.gain.setValueAtTime(0.08, now);
+            gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
+            osc.connect(gain);
+            gain.connect(ctx.destination);
+            osc.start(now);
+            osc.stop(now + 0.1);
+          } catch(e) {}
+        }
 
-      // 彈回音 (Snap-back sound for when card resets)
-      function playSfxSnapback() {
-        const ctx = ensureAudioCtx();
-        const now = ctx.currentTime;
-        const osc = ctx.createOscillator();
-        const gain = ctx.createGain();
-        osc.type = 'sine';
-        osc.frequency.setValueAtTime(400, now);
-        osc.frequency.exponentialRampToValueAtTime(250, now + 0.06);
-        gain.gain.setValueAtTime(0.08, now);
-        gain.gain.exponentialRampToValueAtTime(0.001, now + 0.08);
-        osc.connect(gain);
-        gain.connect(ctx.destination);
-        osc.start(now);
-        osc.stop(now + 0.1);
-      }
-
-      // --- DOM Elements ---
-      const card = document.getElementById("swipe-card");
-      const edgeLeft = document.getElementById("edge-left");
-      const edgeRight = document.getElementById("edge-right");
-      const statRow = document.getElementById("stat-row");
+        // --- DOM Elements ---
+        const card = document.getElementById("swipe-card");
+        const edgeLeft = document.getElementById("edge-left");
+        const edgeRight = document.getElementById("edge-right");
+        const statRow = document.getElementById("stat-row");
 
       let currentArgs = null;
       let isDragging = false;
@@ -701,6 +710,12 @@
           handleCommit("right");
         }
       });
+    } catch(err) {
+      document.body.style.background = "#fff";
+      document.body.style.color = "#000";
+      document.body.innerHTML = "INIT ERROR: " + err.message + "<br><pre>" + err.stack + "</pre>";
+      sendMessageToStreamlitClient("streamlit:setFrameHeight", { height: 600 });
+    }
     </script>
   </body>
 </html>
