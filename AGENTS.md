@@ -6,7 +6,7 @@
 |name:IBD_REIGNS|tech:Python|framework:Flask|
 
 ## 規則索引 (Rule Index, .agent/)
-|skills:{ui-design.skill.md}|
+|skills:{api-design.skill.md,ui-design.skill.md}|
 
 ## 開發指南 (Instructions)
 

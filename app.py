@@ -8,7 +8,16 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 from ibd_reigns.analytics import AnalyticsClient, JsonlSink, default_schema
-from ibd_reigns.analytics_summary import load_events, summarize_all, summarize_session
+from ibd_reigns.analytics_summary import (
+    CONSENT_LEVELS,
+    PrivacyBudgetTracker,
+    filter_by_consent,
+    load_events,
+    purge_old_events,
+    summarize_all,
+    summarize_session,
+    summarize_trend,
+)
 from ibd_reigns.constants import (
     FINAL_WEEK,
     FLARE_TAG,
@@ -72,11 +81,11 @@ def init_state(cards, endings):
         session_id = str(uuid.uuid4())
         st.session_state.analytics = AnalyticsClient(
             schema=default_schema(),
-            sink=JsonlSink("/tmp/gut_reigns_analytics.jsonl"),
+            sink=JsonlSink("data/analytics.jsonl"),
             session_id=session_id,
         )
     if "sql_engine" not in st.session_state:
-        st.session_state.sql_engine = SqlEngine("gut_reigns.db")
+        st.session_state.sql_engine = SqlEngine("data/gut_reigns.db")
 
 
 def render_swipe_tutorial() -> None:
@@ -86,9 +95,9 @@ def render_swipe_tutorial() -> None:
     <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;
                 min-height:75vh;text-align:center;padding:1rem;">
       <div style="font-size:2.5rem;margin-bottom:0.5rem;">👑</div>
-      <div style="font-size:1.6rem;font-weight:700;color:#E8D5B7;margin-bottom:0.8rem;
+      <div style="font-size:1.6rem;font-weight:700;color:var(--color-text);margin-bottom:0.8rem;
                   font-family:'Noto Serif TC',serif;">腸道王權</div>
-      <div style="font-size:1.1rem;color:#E8D5B7;margin-bottom:2.5rem;line-height:1.6;">
+      <div style="font-size:1.1rem;color:var(--color-text);margin-bottom:2.5rem;line-height:1.6;">
         你剛診斷出 IBD (發炎性腸道疾病)，<br>請在日常生活中做出對你最好的選擇。
       </div>
 
@@ -106,8 +115,8 @@ def render_swipe_tutorial() -> None:
         <div class="tutorial-text tutorial-text-right">👉 接受</div>
       </div>
 
-      <div style="font-size:1rem;color:#8A7A6A;line-height:1.8;margin-top:2.5rem;margin-bottom:1.5rem;background:rgba(232,213,183,0.05);padding:1rem;border-radius:12px;border:1px solid rgba(232,213,183,0.1);">
-        <strong style="color:#E8D5B7;font-size:1.1rem;">操作說明</strong><br>
+      <div style="font-size:1rem;color:var(--color-muted);line-height:1.8;margin-top:2.5rem;margin-bottom:1.5rem;background:rgba(232,213,183,0.05);padding:1rem;border-radius:12px;border:1px solid rgba(232,213,183,0.1);">
+        <strong style="color:var(--color-text);font-size:1.1rem;">操作說明</strong><br>
         1. 按住畫面的卡片，<strong>往左</strong>或<strong>往右</strong>滑動<br>
         2. 或者，直接點擊下方的<strong>紅色 / 綠色按鈕</strong>
       </div>
@@ -156,12 +165,12 @@ def render_swipe_tutorial() -> None:
       }
       .tutorial-text-left {
         left: 0px;
-        color: var(--color-danger);
+        color: var(--color-danger, #E57373);
         animation: textLeftCycle 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
       }
       .tutorial-text-right {
         right: 0px;
-        color: var(--color-success);
+        color: var(--color-success, #81C784);
         animation: textRightCycle 4s infinite cubic-bezier(0.4, 0, 0.2, 1);
       }
 
@@ -320,7 +329,7 @@ def render_ending_screen(ending, state) -> None:
       <div class="gutreigns-ending-desc">{desc}</div>
       <div class="gutreigns-ending-stats">{stat_items}
         <div class="gutreigns-ending-stat-item">
-          <div class="gutreigns-ending-stat-value" style="color:#7F8C8D">{weeks_survived}</div>
+          <div class="gutreigns-ending-stat-value" style="color:var(--color-muted)">{weeks_survived}</div>
           <div class="gutreigns-ending-stat-label">存活週數</div>
         </div>
       </div>
@@ -328,7 +337,7 @@ def render_ending_screen(ending, state) -> None:
     """, unsafe_allow_html=True)
 
 
-def render_sparkline(history: list, color: str = "#999", width: int = 80, height: int = 20) -> str:
+def render_sparkline(history: list, color: str = "var(--color-muted)", width: int = 80, height: int = 20) -> str:
     """Generate a compact inline SVG sparkline from a stat history list."""
     if len(history) < 2:
         return ""
@@ -373,9 +382,9 @@ def render_autopsy_report(state) -> None:
     for c in report["worst_cards"]:
         cards_html += (
             f"<div style='display:flex;justify-content:space-between;padding:3px 0;"
-            f"border-bottom:1px solid rgba(0,0,0,0.05);font-size:0.82rem'>"
+            f"border-bottom:1px solid rgba(255,255,255,0.05);font-size:0.82rem'>"
             f"<span>第 {c['week']} 週 · <b>{html.escape(c['card_id'])}</b></span>"
-            f"<span style='color:#C0392B'>{c['delta']:+d}</span></div>"
+            f"<span style='color:var(--color-danger)'>{c['delta']:+d}</span></div>"
         )
     cards_html = safe_str(cards_html)
 
@@ -399,8 +408,8 @@ def render_autopsy_report(state) -> None:
     no_data_html = safe_str('<span style="font-size:0.82rem;color:var(--color-muted)">無資料</span>')
 
     st.markdown(safe_str(f"""
-    <div class="gutreigns-edu" style="border-left-color:#C0392B; background:rgba(192,57,43,0.04);">
-      <div class="gutreigns-edu-title" style="color:#C0392B">🔍 惡化原因分析</div>
+    <div class="gutreigns-edu" style="border-left-color:var(--color-danger); background:rgba(229,115,115,0.04);">
+      <div class="gutreigns-edu-title" style="color:var(--color-danger)">🔍 惡化原因分析</div>
       <div style="margin:0.5rem 0">
         <div style="font-size:1.1rem;font-weight:700;margin-bottom:0.3rem">{fatal_label}</div>
       </div>
@@ -417,18 +426,18 @@ def render_autopsy_report(state) -> None:
     # Counterfactual "What If" panel
     if cf_html:
         st.markdown(safe_str(f"""
-        <div class="gutreigns-edu" style="border-left-color:#F39C12; background:rgba(243,156,18,0.04);">
-          <div class="gutreigns-edu-title" style="color:#F39C12">🔮 如果你選了另一邊…</div>
+        <div class="gutreigns-edu" style="border-left-color:var(--color-warning); background:rgba(255,183,77,0.04);">
+          <div class="gutreigns-edu-title" style="color:var(--color-warning)">🔮 如果你選了另一邊…</div>
           {cf_html}
         </div>
         """), unsafe_allow_html=True)
 
     # Education progress
     if edu_learned:
-        topics_html = "".join(f"<span style='display:inline-block;background:rgba(76,175,80,0.15);border:1px solid rgba(76,175,80,0.3);border-radius:8px;padding:2px 8px;margin:2px;font-size:0.75rem'>✅ {html.escape(t)}</span>" for t in edu_learned)
+        topics_html = "".join(f"<span style='display:inline-block;background:rgba(129,199,132,0.15);border:1px solid rgba(129,199,132,0.3);border-radius:8px;padding:2px 8px;margin:2px;font-size:0.75rem'>✅ {html.escape(t)}</span>" for t in edu_learned)
         st.markdown(safe_str(f"""
-        <div class="gutreigns-edu" style="border-left-color:#4CAF50; background:rgba(76,175,80,0.04);">
-          <div class="gutreigns-edu-title" style="color:#4CAF50">📚 IBD 知識進度 ({edu_progress_pct}%)</div>
+        <div class="gutreigns-edu" style="border-left-color:var(--color-success); background:rgba(129,199,132,0.04);">
+          <div class="gutreigns-edu-title" style="color:var(--color-success)">📚 IBD 知識進度 ({edu_progress_pct}%)</div>
           <div style="margin-top:0.4rem">{topics_html}</div>
         </div>
         """), unsafe_allow_html=True)
@@ -527,19 +536,13 @@ def render_medical_profile(state) -> None:
                 '<div style="text-align:center;background:linear-gradient(135deg,rgba(255,215,0,0.15),rgba(255,183,77,0.1));'
                 'border:1px solid rgba(255,215,0,0.3);border-radius:12px;padding:0.5rem;margin-top:0.3rem">'
                 '<span style="font-size:1.3rem">🏆</span><br>'
-                '<span style="font-size:0.75rem;font-weight:700;color:#FFD700">IBD 知識大師</span>'
+                '<span style="font-size:0.75rem;font-weight:700;color:var(--color-warning)">IBD 知識大師</span>'
                 '</div>',
                 unsafe_allow_html=True,
             )
 
 
 def render_analytics_dashboard() -> None:
-    from ibd_reigns.analytics_summary import (
-        purge_old_events, PrivacyBudgetTracker, filter_by_consent,
-        CONSENT_LEVELS, summarize_trend,
-        load_events, summarize_all
-    )
-
     st.subheader("📊 數據總結")
 
     # --- Consent Level Selector ---
@@ -552,7 +555,7 @@ def render_analytics_dashboard() -> None:
         key="dashboard_consent"
     )
 
-    events = load_events("/tmp/gut_reigns_analytics.jsonl")
+    events = load_events("data/analytics.jsonl")
     summary = summarize_all(events, consent_level=consent)
     summary = filter_by_consent(summary, consent)
     pm = summary.get("privacy_metadata", {})
@@ -567,9 +570,8 @@ def render_analytics_dashboard() -> None:
     minimized_text = ", ".join(pm.get("fields_minimized", []))
     budget_info = budget.to_dict()
     st.markdown(f"""
-    <div style="background:rgba(76,175,80,0.08);border:1px solid rgba(76,175,80,0.3);
-                border-radius:12px;padding:1rem;margin-bottom:1rem;">
-      <div style="font-weight:700;color:#4CAF50;margin-bottom:0.5rem;">🔒 隱私保護狀態</div>
+    <div class="gutreigns-privacy-panel">
+      <div style="font-weight:700;color:var(--color-success);margin-bottom:0.5rem;">🔒 隱私保護狀態</div>
       <div style="display:flex;flex-wrap:wrap;gap:1rem;font-size:0.85rem;">
         <div>機制: <b>{pm.get('mechanism', 'N/A')}</b></div>
         <div>ε (epsilon): <b>{pm.get('epsilon', 'N/A')}</b></div>
@@ -577,7 +579,7 @@ def render_analytics_dashboard() -> None:
         <div>資料保留: <b>{pm.get('data_retention_days', 90)} 天</b></div>
         <div>同意等級: <b>{consent}</b></div>
       </div>
-      <div style="margin-top:0.5rem;font-size:0.75rem;color:#8A7A6A;">
+      <div style="margin-top:0.5rem;font-size:0.75rem;color:var(--color-muted);">
         最小化欄位: {minimized_text}
       </div>
     </div>
@@ -585,13 +587,12 @@ def render_analytics_dashboard() -> None:
 
     # --- Privacy Budget Visual ---
     st.markdown(f"""
-    <div style="background:rgba(100,181,246,0.08);border:1px solid rgba(100,181,246,0.3);
-                border-radius:12px;padding:0.8rem;margin-bottom:1rem;">
-      <div style="font-weight:700;color:#64B5F6;margin-bottom:0.4rem;">📊 隱私預算 (Epsilon Budget)</div>
+    <div class="gutreigns-budget-panel">
+      <div style="font-weight:700;color:var(--color-info);margin-bottom:0.4rem;">📊 隱私預算 (Epsilon Budget)</div>
       <div style="height:8px;background:rgba(255,255,255,0.08);border-radius:4px;overflow:hidden;margin-bottom:0.4rem;">
-        <div style="height:100%;width:{budget_info['utilization_pct']}%;background:linear-gradient(90deg,#4CAF50,#FFB74D,#E57373);border-radius:4px;transition:width 0.3s;"></div>
+        <div style="height:100%;width:{budget_info['utilization_pct']}%;background:linear-gradient(90deg,var(--color-success),var(--color-warning),var(--color-danger));border-radius:4px;transition:width 0.3s;"></div>
       </div>
-      <div style="display:flex;gap:1.5rem;font-size:0.8rem;color:#8A7A6A;">
+      <div style="display:flex;gap:1.5rem;font-size:0.8rem;color:var(--color-muted);">
         <div>已使用: <b>{budget_info['spent']}ε</b> / {budget_info['total_budget']}ε</div>
         <div>剩餘: <b>{budget_info['remaining']}ε</b></div>
         <div>查詢次數: <b>{budget_info['query_count']}</b></div>
@@ -660,15 +661,14 @@ def render_analytics_dashboard() -> None:
                 # 漸變色：從綠色到紅色
                 hue = int(120 * (1 - i / max(len(funnel) - 1, 1)))
                 color = f"hsl({hue}, 65%, 55%)"
-                funnel_html += f"""
-                <div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.35rem;">
-                  <div style="min-width:140px;font-size:0.8rem;text-align:right;color:#999;">{html.escape(stage['stage'])}</div>
-                  <div style="flex:1;height:22px;background:rgba(255,255,255,0.05);border-radius:4px;overflow:hidden;">
-                    <div style="height:100%;width:{bar_pct}%;background:{color};border-radius:4px;transition:width 0.5s;"></div>
-                  </div>
-                  <div style="min-width:60px;font-size:0.75rem;color:#bbb;">{stage['count']} ({stage['percent']}%)</div>
-                </div>"""
-            st.markdown(f"""<div style="background:rgba(0,0,0,0.03);border:1px solid rgba(0,0,0,0.06);border-radius:12px;padding:1rem;margin-bottom:1rem;">
+                funnel_html += f"""<div style="display:flex;align-items:center;gap:0.6rem;margin-bottom:0.35rem;">
+<div style="min-width:140px;font-size:0.8rem;text-align:right;color:var(--color-muted);">{html.escape(stage['stage'])}</div>
+<div style="flex:1;height:22px;background:rgba(255,255,255,0.05);border-radius:4px;overflow:hidden;">
+<div style="height:100%;width:{bar_pct}%;background:{color};border-radius:4px;transition:width 0.5s;"></div>
+</div>
+<div style="min-width:60px;font-size:0.75rem;color:var(--color-text);opacity:0.8;">{stage['count']} ({stage['percent']}%)</div>
+</div>"""
+            st.markdown(f"""<div style="background:rgba(0,0,0,0.1);border:1px solid var(--color-border);border-radius:12px;padding:1rem;margin-bottom:1rem;">
 {funnel_html}
 </div>""", unsafe_allow_html=True)
         else:
@@ -686,19 +686,17 @@ def render_analytics_dashboard() -> None:
                 rr = cs.get("right_ratio")
                 left_pct = int((lr or 0) * 100)
                 right_pct = int((rr or 0) * 100)
-                cards_html += f"""
-                <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.3rem;
-                            padding:0.4rem 0.6rem;border-bottom:1px solid rgba(0,0,0,0.04);">
-                  <div style="min-width:120px;font-size:0.78rem;font-weight:600;">{html.escape(cs['card_id'])}</div>
-                  <div style="flex:1;display:flex;height:16px;border-radius:3px;overflow:hidden;">
-                    <div style="width:{left_pct}%;background:#5B8DEF;transition:width 0.3s;" title="← {left_pct}%"></div>
-                    <div style="width:{right_pct}%;background:#EF5B5B;transition:width 0.3s;" title="→ {right_pct}%"></div>
-                  </div>
-                  <div style="min-width:90px;font-size:0.7rem;color:#888;">← {left_pct}% / {right_pct}% →</div>
-                  <div style="min-width:30px;font-size:0.7rem;color:#aaa;">n={cs['total_chosen']}</div>
-                </div>"""
-            st.markdown(f"""<div style="background:rgba(0,0,0,0.02);border:1px solid rgba(0,0,0,0.06);border-radius:12px;padding:0.8rem;">
-<div style="display:flex;justify-content:space-between;font-size:0.7rem;color:#bbb;padding:0 0.6rem 0.4rem;">
+                cards_html += f"""<div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.3rem;padding:0.4rem 0.6rem;border-bottom:1px solid rgba(0,0,0,0.04);">
+<div style="min-width:120px;font-size:0.78rem;font-weight:600;">{html.escape(cs['card_id'])}</div>
+<div style="flex:1;display:flex;height:16px;border-radius:3px;overflow:hidden;">
+<div style="width:{left_pct}%;background:var(--color-info);transition:width 0.3s;" title="← {left_pct}%"></div>
+<div style="width:{right_pct}%;background:var(--color-danger);transition:width 0.3s;" title="→ {right_pct}%"></div>
+</div>
+<div style="min-width:90px;font-size:0.7rem;color:var(--color-muted);">← {left_pct}% / {right_pct}% →</div>
+<div style="min-width:30px;font-size:0.7rem;color:var(--color-muted);opacity:0.6;">n={cs['total_chosen']}</div>
+</div>"""
+            st.markdown(f"""<div style="background:rgba(0,0,0,0.15);border:1px solid var(--color-border);border-radius:12px;padding:0.8rem;">
+<div style="display:flex;justify-content:space-between;font-size:0.7rem;color:var(--color-muted);padding:0 0.6rem 0.4rem;">
 <span>卡牌 ID</span><span>← 左 / 右 →</span>
 </div>
 {cards_html}
@@ -716,14 +714,12 @@ def render_analytics_dashboard() -> None:
                 for cc in critical[:10]:
                     dominant_label = "⬅️ 大多選左" if cc["dominant_side"] == "left" else "➡️ 大多選右"
                     diff_pct = int(cc["ratio_diff"] * 100)
-                    crit_html += f"""
-                    <div style="display:flex;align-items:center;gap:0.5rem;padding:0.4rem 0.6rem;
-                                border-bottom:1px solid rgba(0,0,0,0.04);font-size:0.8rem;">
-                      <span style="min-width:120px;font-weight:600;">{html.escape(cc['card_id'])}</span>
-                      <span style="color:#F39C12;font-weight:700;">Δ{diff_pct}%</span>
-                      <span style="color:#888;">{dominant_label}</span>
-                    </div>"""
-                st.markdown(f"""<div style="background:rgba(243,156,18,0.05);border:1px solid rgba(243,156,18,0.2);border-radius:12px;padding:0.8rem;">
+                    crit_html += f"""<div style="display:flex;align-items:center;gap:0.5rem;padding:0.4rem 0.6rem;border-bottom:1px solid rgba(255,255,255,0.04);font-size:0.8rem;">
+<span style="min-width:120px;font-weight:600;">{html.escape(cc['card_id'])}</span>
+<span style="color:var(--color-warning);font-weight:700;">Δ{diff_pct}%</span>
+<span style="color:var(--color-muted);">{dominant_label}</span>
+</div>"""
+                st.markdown(f"""<div style="background:rgba(255,183,77,0.05);border:1px solid rgba(255,183,77,0.2);border-radius:12px;padding:0.8rem;">
 {crit_html}
 </div>""", unsafe_allow_html=True)
 
@@ -747,7 +743,7 @@ def render_analytics_dashboard() -> None:
     st.markdown("---")
     st.subheader("🗑️ 資料管理")
     if st.button("清除超過 90 天的舊資料", type="secondary"):
-        purged = purge_old_events("/tmp/gut_reigns_analytics.jsonl")
+        purged = purge_old_events("data/analytics.jsonl")
         st.success(f"已清除 {purged} 筆過期資料")
 
 
@@ -768,6 +764,8 @@ def main() -> None:
     analytics = st.session_state.analytics
     renderer = StreamlitRenderer()
 
+    # Preload Fonts for performance instead of @import in CSS
+    st.markdown("""<link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Inter:wght@400;600&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">""", unsafe_allow_html=True)
     st.markdown(MOBILE_CSS, unsafe_allow_html=True)
 
     # Removed sidebar mode selector to keep analytics hidden
@@ -826,7 +824,7 @@ def main() -> None:
             st.session_state.sql_engine.record_run(state.week, ending.id, "survived")
             state._run_recorded = True
 
-        events = load_events("/tmp/gut_reigns_analytics.jsonl")
+        events = load_events("data/analytics.jsonl")
         session_summary = summarize_session(events, analytics.session_id)
         with st.expander("📊 本局數據總結"):
             st.json(session_summary)
@@ -836,8 +834,8 @@ def main() -> None:
 
         share_html = """
         <div style="margin-top:0.8rem; text-align:center;">
-          <button id="copyLink" style="padding:0.6rem 1.2rem; border-radius:12px; border:1px solid rgba(0,0,0,0.1); background:white; font-weight:600; cursor:pointer; transition:all 0.2s"
-            onmouseover="this.style.background='#f0f0f0'" onmouseout="this.style.background='white'">📋 複製連結</button>
+          <button id="copyLink" style="padding:0.6rem 1.2rem; border-radius:12px; border:1px solid rgba(232,213,183,0.12); background:var(--color-card-bg, #16213E); color:var(--color-text, #E8D5B7); font-weight:600; cursor:pointer; transition:all 0.2s"
+            onmouseover="this.style.background='var(--color-card-bg-hover, #1F2F52)'" onmouseout="this.style.background='var(--color-card-bg, #16213E)'">📋 複製連結</button>
         </div>
         <script>
           const btn = document.getElementById('copyLink');
@@ -948,11 +946,11 @@ def main() -> None:
     # --- Micro-Tip ---
     tip = generate_micro_tip(state)
     if tip:
-        st.markdown(f'<div style="text-align:center;font-size:0.72rem;color:#8A7A6A;opacity:0.7;margin:0.3rem 0;font-style:italic">{html.escape(tip)}</div>', unsafe_allow_html=True)
+        st.markdown(f'<div style="text-align:center;font-size:0.72rem;color:var(--color-muted);opacity:0.7;margin:0.3rem 0;font-style:italic">{html.escape(tip)}</div>', unsafe_allow_html=True)
 
     left = False
     right = False
-    st.markdown("<div style='margin-top:1.5rem;text-align:center;font-size:0.9rem;color:#8A7A6A;margin-bottom:0.5rem;'>不用滑動，點按鈕也可以👇</div>", unsafe_allow_html=True)
+    st.markdown("<div style='margin-top:1.5rem;text-align:center;font-size:0.9rem;color:var(--color-muted);margin-bottom:0.5rem;'>不用滑動，點按鈕也可以👇</div>", unsafe_allow_html=True)
     col_l, col_r = st.columns(2)
     with col_l:
         left = st.button(
@@ -1002,7 +1000,7 @@ def main() -> None:
         swipe_left = swipe_dir == "left"
         swipe_right = swipe_dir == "right"
 
-    if left or right or swipe_left or swipe_right:
+    if (left or right or swipe_left or swipe_right) and state.active_card_id is not None:
         swipe_choice = 'left' if (left or swipe_left) else 'right'
         option = card.left if swipe_choice == 'left' else card.right
         state.active_card_id = None

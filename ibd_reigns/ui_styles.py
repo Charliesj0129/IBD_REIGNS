@@ -1,6 +1,5 @@
 MOBILE_CSS = """
 <style>
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;700&family=Inter:wght@400;600&display=swap');
 
 :root {
   --color-primary: #E8D5B7;
@@ -237,163 +236,6 @@ header {visibility: hidden !important;}
 }
 
 /* ============================================
-   CARD STYLES — Dark medieval medical
-   ============================================ */
-.gutreigns-card {
-  background: var(--color-card-bg);
-  border-radius: var(--radius-lg);
-  padding: 1.5rem;
-  box-shadow: var(--shadow-md);
-  border: 1px solid var(--color-border);
-  position: relative;
-  overflow: hidden;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-  cursor: grab;
-}
-.gutreigns-card:active { cursor: grabbing; }
-
-.gutreigns-character {
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 0.15em;
-  color: var(--color-accent);
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-}
-
-.gutreigns-dialogue {
-  font-family: 'Noto Serif TC', serif;
-  font-size: 1.1rem;
-  line-height: 1.65;
-  color: var(--color-text);
-  margin-bottom: 1rem;
-}
-
-.gutreigns-silhouette {
-  display: block;
-  margin: 0 auto 0.6rem auto;
-  width: 64px;
-  opacity: 0.5;
-  filter: drop-shadow(0 0 10px rgba(212,165,116,0.15));
-}
-
-/* Swipe edge labels */
-.swipe-edge {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  font-weight: 700;
-  font-size: 0.85rem;
-  padding: 0.4rem 0.9rem;
-  border-radius: 16px;
-  backdrop-filter: blur(6px);
-  opacity: 0;
-  transition: opacity 0.15s;
-  pointer-events: none;
-}
-.swipe-edge.left {
-  left: 0.8rem;
-  background: rgba(229,115,115,0.12);
-  color: var(--color-danger);
-  border: 1px solid rgba(229,115,115,0.25);
-}
-.swipe-edge.right {
-  right: 0.8rem;
-  background: rgba(129,199,132,0.12);
-  color: var(--color-success);
-  border: 1px solid rgba(129,199,132,0.25);
-}
-
-/* NOPE / YES stamps */
-.swipe-feedback {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-weight: 700;
-  font-size: 1.2rem;
-  opacity: 0;
-  transition: opacity 0.2s;
-  border: 2px solid;
-  border-radius: 8px;
-  padding: 4px 12px;
-  transform: rotate(15deg);
-}
-.swipe-feedback.nope { border-color: var(--color-danger); color: var(--color-danger); right: auto; left: 20px; transform: rotate(-15deg); }
-.swipe-feedback.like { border-color: var(--color-success); color: var(--color-success); }
-
-/* Preview panel */
-.gutreigns-preview {
-  font-size: 0.82rem;
-  margin-top: 0.5rem;
-  border: 1px solid var(--color-border);
-  border-radius: 12px;
-  padding: 0.5rem 0.8rem;
-  background: rgba(0,0,0,0.15);
-  color: var(--color-muted);
-}
-
-/* ============================================
-   ANIMATIONS
-   ============================================ */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(8px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-.animate-enter { animation: fadeIn 0.4s ease-out forwards; }
-
-@keyframes cardSlideIn {
-  0% { opacity: 0; transform: translateY(40px) rotate(2deg) scale(0.96); }
-  60% { opacity: 1; transform: translateY(-4px) rotate(-0.5deg) scale(1.01); }
-  100% { opacity: 1; transform: translateY(0) rotate(0deg) scale(1); }
-}
-.card-enter { animation: cardSlideIn 0.45s cubic-bezier(0.34, 1.56, 0.64, 1) forwards; }
-
-/* Death animation */
-@keyframes deathShake {
-  0%, 100% { transform: translateX(0); }
-  10% { transform: translateX(-8px) rotate(-1deg); }
-  20% { transform: translateX(8px) rotate(1deg); }
-  30% { transform: translateX(-6px) rotate(-0.5deg); }
-  40% { transform: translateX(6px) rotate(0.5deg); }
-  50% { transform: translateX(-4px); }
-  60% { transform: translateX(4px); }
-  70% { transform: translateX(-2px); }
-  80% { transform: translateX(2px); }
-}
-@keyframes deathFlash {
-  0% { box-shadow: inset 0 0 0 0 rgba(192,57,43,0); }
-  30% { box-shadow: inset 0 0 120px 40px rgba(192,57,43,0.3); }
-  100% { box-shadow: inset 0 0 60px 20px rgba(192,57,43,0.08); }
-}
-.death-screen {
-  animation: deathShake 0.6s ease-out, deathFlash 1.2s ease-out forwards;
-}
-
-/* Season flash */
-@keyframes seasonPulse {
-  0% { opacity: 1; }
-  50% { opacity: 0.3; }
-  100% { opacity: 1; }
-}
-.season-transition {
-  animation: seasonPulse 0.8s ease-in-out;
-}
-
-/* Title icon */
-.gutreigns-title-icon {
-  display: inline-block;
-  transition: all 0.5s ease;
-}
-.gutreigns-title-icon.critical {
-  animation: critPulse 1.2s infinite;
-  filter: hue-rotate(-40deg) saturate(2);
-}
-
-/* ============================================
    STATUS BADGES
    ============================================ */
 .gutreigns-status-bar {
@@ -558,7 +400,6 @@ header {visibility: hidden !important;}
   font-size: 0.65rem;
   color: var(--color-muted);
   text-transform: uppercase;
-  letter-spacing: 0.05em;
 }
 
 /* ============================================
@@ -699,5 +540,44 @@ header {visibility: hidden !important;}
     transition-duration: 0.01ms !important;
   }
 }
+/* ============================================
+   RESTORED / MISSING CLASSES (Round 2 Fixes)
+   ============================================ */
+.gutreigns-privacy-panel {
+  background: rgba(129, 199, 132, 0.08); /* flex with --color-success */
+  border: 1px solid rgba(129, 199, 132, 0.3);
+  border-radius: var(--radius-md);
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+.gutreigns-budget-panel {
+  background: rgba(100, 181, 246, 0.08); /* flex with --color-info */
+  border: 1px solid rgba(100, 181, 246, 0.3);
+  border-radius: var(--radius-md);
+  padding: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes deathShake { 
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); } 
+  20% { transform: translate(-3px, 0px) rotate(1deg); } 
+  30% { transform: translate(3px, 2px) rotate(0deg); } 
+  40% { transform: translate(1px, -1px) rotate(1deg); } 
+  50% { transform: translate(-1px, 2px) rotate(-1deg); } 
+  60% { transform: translate(-3px, 1px) rotate(0deg); } 
+  70% { transform: translate(3px, 1px) rotate(-1deg); } 
+  80% { transform: translate(-1px, -1px) rotate(1deg); } 
+  90% { transform: translate(1px, 2px) rotate(0deg); } 
+  100% { transform: translate(1px, -2px) rotate(-1deg); } 
+}
+@keyframes deathFlash { 0% { background-color: #4a0000; } 100% { background-color: var(--color-bg); } }
+.death-screen { animation: deathFlash 0.5s ease-out, deathShake 0.5s; padding: 1rem; border-radius: var(--radius-lg); background: rgba(30,10,10,0.6); }
+
+.animate-enter { animation: fadeIn 0.4s ease-out forwards; }
+.card-enter { animation: fadeIn 0.3s ease-out; }
+.season-transition { animation: fadeIn 0.5s ease-in-out; }
+.gutreigns-title-icon { display: inline-block; animation: fadeIn 0.8s ease-out; margin-right: 0.5rem; }
 </style>
 """

@@ -16,8 +16,8 @@ RUN apt-get update && apt-get install -y --no-install-recommends curl \
 # Copy the dependency definitions
 COPY pyproject.toml uv.lock ./
 
-# Install dependencies
-RUN uv sync --frozen --no-dev
+# Install dependencies directly to the system python to avoid venv recreation at runtime
+RUN uv pip install --system -r pyproject.toml
 
 # Copy the rest of the application
 COPY . .
@@ -29,4 +29,4 @@ EXPOSE 8501
 HEALTHCHECK CMD curl --fail http://localhost:8501/_stcore/health || exit 1
 
 # Run the application
-CMD ["uv", "run", "streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+CMD ["python", "-m", "streamlit", "run", "app.py", "--server.port=8501", "--server.address=0.0.0.0"]

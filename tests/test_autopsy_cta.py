@@ -25,8 +25,8 @@ def test_fake_win_detection():
 
 def test_cta_variants():
     bad = build_cta("bad_sepsis")
-    assert "衛教指引" in bad.actions[0].label
+    assert "衛教手冊" in bad.actions[0].label
     support = build_cta("bad_dropout")
-    assert "病友社群" in support.actions[0].label
+    assert "IBD" in support.actions[0].label
     good = build_cta("good")
-    assert any(action.action_type == "share" for action in good.actions)
+    assert any(action.action_type == "link" for action in good.actions)

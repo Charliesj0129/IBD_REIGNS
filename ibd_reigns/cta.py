@@ -21,25 +21,25 @@ def build_cta(ending_type: str) -> CtaContent:
         return CtaContent(
             title="別讓這成為現實",
             actions=[
-                CtaAction(label="下載衛教指引", action_type="link", url="https://www.tsibd.org.tw/editor_images/File/TSIBD-201810.pdf"),
-                CtaAction(label="學會衛教專區", action_type="link", url="https://www.tsibd.org.tw/patients/"),
+                CtaAction(label="下載衛教手冊", action_type="link", url="http://tasid.org.tw/upload/FileData/file/50/351.pdf"),
+                CtaAction(label="IBD 官網", action_type="link", url="https://www.ibdpg.tw/"),
             ],
-            footer="© 台灣炎症性腸道疾病病友協會",
+            footer="© 台灣發炎性腸道疾病學會",
         )
     if ending_type in {"bad_dropout", "bad_bankruptcy", "financial_toxicity"}:
         return CtaContent(
             title="你並不孤單",
             actions=[
-                CtaAction(label="加入病友社群", action_type="link", url="https://www.facebook.com/TaiwanIBD/"),
-                CtaAction(label="社福資源總覽", action_type="link", url="https://www.tsibd.org.tw/patients/"),
+                CtaAction(label="IBD 官網", action_type="link", url="https://www.ibdpg.tw/"),
+                CtaAction(label="下載衛教手冊", action_type="link", url="http://tasid.org.tw/upload/FileData/file/50/351.pdf"),
             ],
-            footer="© 台灣炎症性腸道疾病病友協會",
+            footer="© 台灣發炎性腸道疾病學會",
         )
     return CtaContent(
         title="恭喜達成深度緩解",
         actions=[
-            CtaAction(label="加入病友社群", action_type="link", url="https://www.facebook.com/TaiwanIBD/"),
-            CtaAction(label="社福資源總覽", action_type="link", url="https://www.tsibd.org.tw/patients/"),
+            CtaAction(label="IBD 官網", action_type="link", url="https://www.ibdpg.tw/"),
+            CtaAction(label="下載衛教手冊", action_type="link", url="http://tasid.org.tw/upload/FileData/file/50/351.pdf"),
         ],
-        footer="© 台灣炎症性腸道疾病病友協會",
+        footer="© 台灣發炎性腸道疾病學會",
     )

@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-01T14:57:49.502Z",
+  "generatedAt": "2026-03-04T13:17:45.999Z",
   "technology": {
     "language": "Python",
     "framework": "unknown"
@@ -12,6 +12,10 @@
   "pixiu": {
     "active_rules": [],
     "installed_skills": [
+      {
+        "filename": "api-design.skill.md",
+        "size": 3806
+      },
       {
         "filename": "ui-design.skill.md",
         "size": 6178

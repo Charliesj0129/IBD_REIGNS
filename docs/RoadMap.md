@@ -14,11 +14,14 @@
 - **核心框架**: Streamlit 內建 UI 元件
 - **Swipe 卡片互動模組**: 自定義的 Streamlit Custom Component (使用原生 HTML/CSS/JavaScript 開發)，實作真正的平滑拖曳物理引擎 (Physics Engine)。
 - **樣式 (Styling)**: 原生 CSS (`ibd_reigns/ui_styles.py`)，搭配 Noto Serif TC 與 Inter 字體，深色中世紀暗黑主題搭配 Glassmorphism 季節光暈效果。
+- **設計系統 (Design System)**: `design-system/MASTER.md` 定義全域 CSS Token (SSOT)，包含色彩、圓角、陰影與無障礙規範。
+- **角色圖像**: 12 組 REIGNS 風格 SVG 剪影角色，由 `scripts/generate_svg_assets.py` 自動產生，於遊戲中依卡牌角色動態對應。
 
 ### 測試與交付
 
 - **測試框架**: `pytest` (>=7.4.0) 與 `pytest-cov` (測試覆蓋率 ≥ 90%)
-- **容器化部署**: Docker (`Dockerfile`, `docker-compose.yml`)
+- **壓力測試**: `scripts/load_test.py` (Locust 壓測腳本)
+- **容器化部署**: Docker (`Dockerfile`, `docker-compose.yml`)，支援 Nginx 負載均衡的水平擴展叢集 (3 副本)
 
 ---
 
@@ -53,7 +56,21 @@
 - [x] **UI 全面升級**: 深色中世紀主題、Glassmorphism 季節光暈、透明卡牌背景、Streamlit 原生元件覆蓋。
 - [x] **卡牌內容全面中文化**: 83 張卡牌的劇情、角色、選項與衛教資訊全部翻譯為繁體中文。
 
-### Phase 5: 前後端狀態一致性 (規劃中)
+### Phase 5: 使用者體驗、擴展架構與可靠性 (已完成)
+
+- [x] **Swipe 互動教學 (Onboarding Tutorial)**: 首次進入遊戲時顯示動畫式滑卡教學，搭配模擬手指與左右提示。
+- [x] **Fallback 按鈕操作**: 在 Swipe 組件下方直接顯示紅 / 綠按鈕，不依賴手指滑動即可遊玩。
+- [x] **熟齡用戶優化 (Accessibility)**: 放大按鈕尺寸、移除「死亡 / 屍檢」等負面詞彙改為「惡化原因分析」，降低高齡用戶心理壓力。
+- [x] **CTA 真實資源連結**: 遊戲結束 Call-to-Action 替換為台灣 IBD 學會 (TSIBD) 衛教指引、病友社群等真實資源。
+- [x] **REIGNS 風格角色 SVG**: 自動產生 12 種角色剪影（醫師、護理師、老闆、同事、家人、朋友等），依卡牌角色動態對應。
+- [x] **Design System SSOT**: 建立 `design-system/MASTER.md` 設計系統主文件，統一 CSS Token，禁止硬編碼色碼，並引入 `@media (prefers-reduced-motion)` 無障礙支援。
+- [x] **Docker + Nginx 水平擴展叢集**: 升級 `docker-compose.yml` 為 3 副本 Streamlit + Nginx (`ip_hash` session affinity)，新增 `start_docker_cluster.sh` 一鍵叢集啟動腳本。
+- [x] **Tunnel 腳本對接叢集**: `start_public_tunnel.sh` 相容 Docker cluster (Port 80) 與單機模式 (Port 8501/8503)。
+- [x] **壓力測試**: 新增 Locust 壓測腳本 `scripts/load_test.py`，驗證叢集負載能力。
+- [x] **Component 穩定性修正**: 修復重複卡牌問題 (week id 去重)、stat 轉場動畫、JS 全域錯誤監聽、Component 重新命名清除瀏覽器快取。
+- [x] **Dockerfile 強化**: 加入 `curl` 支援 healthcheck、移除 CORS 限制以相容 Tunnel 反向代理。
+
+### Phase 6: 前後端狀態一致性 (規劃中)
 
 - [ ] 每個前端 action 帶 `turn_id` / `card_id` 防止狀態不同步
 - [ ] 後端驗證不符就拒絕並回傳最新 state
